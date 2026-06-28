@@ -1,5 +1,6 @@
 [build]
-  command = "npm run build"
+  # Repo root — overrides a Netlify UI "base directory" of `guides`, which breaks the build.
+  command = "node scripts/build.mjs"
   publish = "dist"
 
 # Deploy production from main on every push (Netlify default when linked to GitHub)

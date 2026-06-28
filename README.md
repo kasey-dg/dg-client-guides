@@ -18,8 +18,8 @@ Send clients straight to a guide — no need to visit the site home page first:
 
 | Guide | Direct URL |
 |---|---|
-| Royal Caribbean (generic) | `https://classy-arithmetic-78fde7.netlify.app/royal-caribbean-generic/` |
-| Icon of the Seas | `https://classy-arithmetic-78fde7.netlify.app/royal-caribbean-icon-of-the-seas/` |
+| Royal Caribbean (generic) | `https://dg-guides.netlify.app/royal-caribbean-generic/` |
+| Icon of the Seas | `https://dg-guides.netlify.app/royal-caribbean-icon-of-the-seas/` |
 
 These paths also work without a trailing slash (Netlify redirects automatically). Each guide is also available by filename, e.g. `/royal-caribbean-generic/RC_Know_Before_You_Go_DG.html`.
 
@@ -48,40 +48,54 @@ npm run watch
 
 ## Deploy on push to GitHub (one-time setup)
 
-The repo is at [kasey-dg/dg-client-guides](https://github.com/kasey-dg/dg-client-guides). After you link it to Netlify once, every push to `main` triggers a new deploy automatically.
+The repo is at [kasey-dg/dg-client-guides](https://github.com/kasey-dg/dg-client-guides). Production deploys go to [dg-guides.netlify.app](https://dg-guides.netlify.app/).
 
-### 1. Push the Netlify config
+### How deploy works
 
-Commit and push `netlify.toml`, `package.json`, `scripts/build.mjs`, and `.gitignore` (along with your guide files):
+1. Push to `main` triggers `.github/workflows/deploy-netlify.yml`.
+2. GitHub Actions runs `node scripts/build.mjs` to generate a fresh `dist/` from the HTML in `guides/` and `dowdy-travel/`.
+3. The workflow uploads that built `dist/` to Netlify.
+
+`dist/` is gitignored and never committed — only the built output from CI goes live.
+
+> **Do not rely on GitHub Pages for this site.** The repo also has GitHub Pages enabled, which runs Jekyll on the raw repo and does not run our build script. Disable it under **Settings → Pages → Build and deployment → Source: None** if you only want Netlify.
+
+### 1. Add Netlify secrets to GitHub (one time)
+
+In [Netlify user settings → Applications → Personal access tokens](https://app.netlify.com/user/applications#personal-access-tokens), create a token.
+
+Find the site ID under **Site configuration → General → Site details → Site ID** for `dg-guides`.
+
+In GitHub: **kasey-dg/dg-client-guides → Settings → Secrets and variables → Actions → New repository secret**
+
+| Secret | Value |
+|---|---|
+| `NETLIFY_AUTH_TOKEN` | Netlify personal access token |
+| `NETLIFY_SITE_ID` | Site ID for `dg-guides` |
+
+### 2. Connect Netlify to GitHub (optional fallback)
+
+Netlify can also build on push if linked to the repo. If you use this, confirm:
+
+1. Open [app.netlify.com](https://app.netlify.com) and sign in.
+2. Select the **dg-guides** site.
+3. Under **Site configuration → Build & deploy → Build settings**:
+   - **Base directory:** leave blank (repo root — **not** `guides`)
+   - **Branch to deploy:** `main`
+   - **Build command:** `node scripts/build.mjs`
+   - **Publish directory:** `dist`
+
+> **Important:** If **Base directory** is set to `guides`, Netlify builds fail (no `package.json` or `scripts/` there) and the live site stays on the last successful deploy — which is why changes can look missing after you push.
+
+The GitHub Actions workflow above is the reliable path: it builds `dist/` in CI and uploads it directly.
+
+### 3. Push to deploy
 
 ```bash
-git add .
-git commit -m "Add Netlify build config for multi-path guide deploy"
 git push origin main
 ```
 
-### 2. Connect Netlify to GitHub
-
-1. Open [app.netlify.com](https://app.netlify.com) and sign in.
-2. **Add new site → Import an existing project → GitHub**.
-3. Authorize Netlify for GitHub if prompted.
-4. Select **kasey-dg/dg-client-guides**.
-5. Confirm build settings (auto-detected from `netlify.toml`):
-   - **Base directory:** leave blank (repo root — not `guides`)
-   - **Branch to deploy:** `main`
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-6. Click **Deploy site**.
-
-> **Important:** If you previously set **Base directory** to `guides` in the Netlify UI, clear it under **Site configuration → Build & deploy → Build settings → Edit settings**. The build script and `dowdy-travel/` folder live at the repo root; a `guides` base breaks the build and publish paths.
-
-Netlify installs nothing extra — the build uses Node (bundled on Netlify) to run `scripts/build.mjs`. No environment variables are required.
-
-### 3. Done — deploys are automatic
-
-After the first deploy succeeds, Netlify watches `main`. Each `git push` starts a new build and updates the live site when it finishes. Check progress under **Deploys** in the Netlify dashboard.
-
-**Deploy previews:** Pull requests against `main` get their own preview URLs automatically.
+Check **Actions** in GitHub for the deploy workflow, then verify the live site.
 
 ## Adding a new guide
 
