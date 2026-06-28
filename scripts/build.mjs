@@ -1,14 +1,14 @@
-import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const dist = join(root, "dist");
+const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
+const dist = join(repoRoot, "dist");
 
 /** @type {{ source: string, path: string, pages: { file: string, slug?: string, title: string }[] }[]} */
 const guides = [
   {
-    source: "Royal Caribbean Generic Guide",
+    source: "guides/Royal Caribbean Generic Guide",
     path: "royal-caribbean-generic",
     pages: [
       {
@@ -18,7 +18,7 @@ const guides = [
     ],
   },
   {
-    source: "Royal Caribbean Icon Of The Seas Guide",
+    source: "guides/Royal Caribbean Icon Of The Seas Guide",
     path: "royal-caribbean-icon-of-the-seas",
     pages: [
       {
@@ -103,8 +103,12 @@ for (const guide of guides) {
   for (const page of guide.pages) {
     const slug = page.slug ?? "";
     const targetDir = join(dist, guide.path, slug);
-    const sourceFile = join(root, guide.source, page.file);
+    const sourceFile = join(repoRoot, guide.source, page.file);
     const href = `/${guide.path}/${slug ? `${slug}/` : ""}`;
+
+    if (!existsSync(sourceFile)) {
+      throw new Error(`Missing source file: ${sourceFile}`);
+    }
 
     mkdirSync(targetDir, { recursive: true });
     cpSync(sourceFile, join(targetDir, "index.html"));
