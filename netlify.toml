@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Deploy production from main on every push (Netlify default when linked to GitHub)
+[context.production]
+  branch = "main"
+
+# Serve folder index pages without requiring /index.html in the URL
+[[redirects]]
+  from = "/*/index.html"
+  to = "/:splat/"
+  status = 301
+  force = true

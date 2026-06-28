@@ -1,0 +1,7 @@
+{
+  "name": "dg-client-guides",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}
