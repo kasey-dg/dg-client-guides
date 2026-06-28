@@ -1,4 +1,11 @@
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  rmSync,
+  watch,
+  writeFileSync,
+} from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -94,20 +101,9 @@ ${items}
 `;
 }
 
-rmSync(dist, { recursive: true, force: true });
-mkdirSync(dist, { recursive: true });
-
-function addTrailingSlashRedirect(path) {
-  if (!path.endsWith("/")) return;
-  redirects.push(`${path.slice(0, -1)}  ${path}  301`);
-}
-
 function pageHref(guidePath, slug) {
   return `/${guidePath}/${slug ? `${slug}/` : ""}`;
 }
-
-const siteLinks = [];
-const redirects = [];
 
 function publishPage(sourceFile, targetDir, pageFile) {
   mkdirSync(targetDir, { recursive: true });
@@ -115,59 +111,98 @@ function publishPage(sourceFile, targetDir, pageFile) {
   cpSync(sourceFile, join(targetDir, pageFile));
 }
 
-for (const guide of guides) {
-  const guideLinks = [];
+function build() {
+  rmSync(dist, { recursive: true, force: true });
+  mkdirSync(dist, { recursive: true });
 
-  for (const page of guide.pages) {
-    const slug = page.slug ?? "";
-    const sourceFile = join(repoRoot, guide.source, page.file);
-    const href = pageHref(guide.path, slug);
+  /** @type {string[]} */
+  const redirects = [];
+  /** @type {{ href: string, label: string }[]} */
+  const siteLinks = [];
 
-    if (!existsSync(sourceFile)) {
-      throw new Error(`Missing source file: ${sourceFile}`);
-    }
-
-    publishPage(sourceFile, join(dist, guide.path, slug), page.file);
-    addTrailingSlashRedirect(href);
-
-    if (guide.source.startsWith("guides/")) {
-      const mirrorHref = pageHref(`guides/${guide.path}`, slug);
-      publishPage(sourceFile, join(dist, "guides", guide.path, slug), page.file);
-      addTrailingSlashRedirect(mirrorHref);
-    }
-
-    guideLinks.push({ href, label: page.title });
+  function addTrailingSlashRedirect(path) {
+    if (!path.endsWith("/")) return;
+    redirects.push(`${path.slice(0, -1)}  ${path}  301`);
   }
 
-  if (guide.pages.length > 1) {
-    const guideIndexHref = pageHref(guide.path, "");
-    addTrailingSlashRedirect(guideIndexHref);
-    writeFileSync(
-      join(dist, guide.path, "index.html"),
-      renderIndexPage(`${guide.path.replaceAll("-", " ")} guides`, guideLinks)
-    );
-    siteLinks.push({
-      href: `/${guide.path}/`,
-      label: guide.path.replaceAll("-", " "),
-    });
-  } else {
-    siteLinks.push({ href: guideLinks[0].href, label: guideLinks[0].label });
+  for (const guide of guides) {
+    const guideLinks = [];
+
+    for (const page of guide.pages) {
+      const slug = page.slug ?? "";
+      const sourceFile = join(repoRoot, guide.source, page.file);
+      const href = pageHref(guide.path, slug);
+
+      if (!existsSync(sourceFile)) {
+        throw new Error(`Missing source file: ${sourceFile}`);
+      }
+
+      publishPage(sourceFile, join(dist, guide.path, slug), page.file);
+      addTrailingSlashRedirect(href);
+
+      if (guide.source.startsWith("guides/")) {
+        const mirrorHref = pageHref(`guides/${guide.path}`, slug);
+        publishPage(sourceFile, join(dist, "guides", guide.path, slug), page.file);
+        addTrailingSlashRedirect(mirrorHref);
+      }
+
+      guideLinks.push({ href, label: page.title });
+    }
+
+    if (guide.pages.length > 1) {
+      const guideIndexHref = pageHref(guide.path, "");
+      addTrailingSlashRedirect(guideIndexHref);
+      writeFileSync(
+        join(dist, guide.path, "index.html"),
+        renderIndexPage(`${guide.path.replaceAll("-", " ")} guides`, guideLinks)
+      );
+      siteLinks.push({
+        href: `/${guide.path}/`,
+        label: guide.path.replaceAll("-", " "),
+      });
+    } else {
+      siteLinks.push({ href: guideLinks[0].href, label: guideLinks[0].label });
+    }
+  }
+
+  writeFileSync(
+    join(dist, "index.html"),
+    renderIndexPage("Dazzling Getaways — Client Cruise Guides", siteLinks, {
+      showUrls: true,
+    })
+  );
+
+  writeFileSync(join(dist, "_redirects"), `${redirects.join("\n")}\n`);
+
+  console.log("Built dist/ with the following paths:");
+  for (const link of siteLinks) {
+    console.log(`  ${link.href}`);
+    if (link.href.startsWith("/royal-caribbean")) {
+      console.log(`  /guides${link.href}`);
+    }
   }
 }
 
-writeFileSync(
-  join(dist, "index.html"),
-  renderIndexPage("Dazzling Getaways — Client Cruise Guides", siteLinks, {
-    showUrls: true,
-  })
-);
+build();
 
-writeFileSync(join(dist, "_redirects"), `${redirects.join("\n")}\n`);
+if (process.argv.includes("--watch")) {
+  console.log("\nWatching guides/, dowdy-travel/, and scripts/build.mjs for changes…");
 
-console.log("Built dist/ with the following paths:");
-for (const link of siteLinks) {
-  console.log(`  ${link.href}`);
-  if (link.href.startsWith("/royal-caribbean")) {
-    console.log(`  /guides${link.href}`);
+  let rebuildTimer;
+  const scheduleRebuild = () => {
+    clearTimeout(rebuildTimer);
+    rebuildTimer = setTimeout(() => {
+      console.log("\nSource changed — rebuilding dist/ …");
+      try {
+        build();
+      } catch (err) {
+        console.error(err instanceof Error ? err.message : err);
+      }
+    }, 150);
+  };
+
+  for (const dir of ["guides", "dowdy-travel"]) {
+    watch(join(repoRoot, dir), { recursive: true }, scheduleRebuild);
   }
+  watch(join(repoRoot, "scripts", "build.mjs"), scheduleRebuild);
 }

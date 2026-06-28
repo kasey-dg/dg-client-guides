@@ -27,9 +27,23 @@ Repo-aligned mirrors live under `/guides/royal-caribbean-generic/` and `/guides/
 
 ## Local preview
 
+Rebuild and serve in one step — `dist/` updates automatically when you edit files in `guides/` or `dowdy-travel/`:
+
+```bash
+npm install
+npm run dev
+```
+
+One-off build (also what Netlify runs on deploy):
+
 ```bash
 npm run build
-npx serve dist
+```
+
+Watch only (if you already have a static server running):
+
+```bash
+npm run watch
 ```
 
 ## Deploy on push to GitHub (one-time setup)

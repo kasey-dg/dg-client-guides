@@ -2,6 +2,11 @@
   "name": "dg-client-guides",
   "private": true,
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "dev": "npm run build && concurrently -k -n watch,serve -c blue,green \"npm run watch\" \"npx serve dist\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
