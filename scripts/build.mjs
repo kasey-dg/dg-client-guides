@@ -53,12 +53,14 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-function renderIndexPage(title, links) {
+function renderIndexPage(title, links, { showUrls = false } = {}) {
   const items = links
-    .map(
-      ({ href, label }) =>
-        `    <li><a href="${escapeHtml(href)}">${escapeHtml(label)}</a></li>`
-    )
+    .map(({ href, label }) => {
+      const urlLine = showUrls
+        ? `\n      <small style="color:#555">${escapeHtml(href)}</small>`
+        : "";
+      return `    <li><a href="${escapeHtml(href)}">${escapeHtml(label)}</a>${urlLine}</li>`;
+    })
     .join("\n");
 
   return `<!DOCTYPE html>
@@ -95,30 +97,53 @@ ${items}
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist, { recursive: true });
 
+function addTrailingSlashRedirect(path) {
+  if (!path.endsWith("/")) return;
+  redirects.push(`${path.slice(0, -1)}  ${path}  301`);
+}
+
+function pageHref(guidePath, slug) {
+  return `/${guidePath}/${slug ? `${slug}/` : ""}`;
+}
+
 const siteLinks = [];
+const redirects = [];
+
+function publishPage(sourceFile, targetDir, pageFile) {
+  mkdirSync(targetDir, { recursive: true });
+  cpSync(sourceFile, join(targetDir, "index.html"));
+  cpSync(sourceFile, join(targetDir, pageFile));
+}
 
 for (const guide of guides) {
   const guideLinks = [];
 
   for (const page of guide.pages) {
     const slug = page.slug ?? "";
-    const targetDir = join(dist, guide.path, slug);
     const sourceFile = join(repoRoot, guide.source, page.file);
-    const href = `/${guide.path}/${slug ? `${slug}/` : ""}`;
+    const href = pageHref(guide.path, slug);
 
     if (!existsSync(sourceFile)) {
       throw new Error(`Missing source file: ${sourceFile}`);
     }
 
-    mkdirSync(targetDir, { recursive: true });
-    cpSync(sourceFile, join(targetDir, "index.html"));
+    publishPage(sourceFile, join(dist, guide.path, slug), page.file);
+    addTrailingSlashRedirect(href);
+
+    if (guide.source.startsWith("guides/")) {
+      const mirrorHref = pageHref(`guides/${guide.path}`, slug);
+      publishPage(sourceFile, join(dist, "guides", guide.path, slug), page.file);
+      addTrailingSlashRedirect(mirrorHref);
+    }
+
     guideLinks.push({ href, label: page.title });
   }
 
   if (guide.pages.length > 1) {
-    const guideIndex = join(dist, guide.path, "index.html");
+    const guideIndexHref = pageHref(guide.path, "");
+    addTrailingSlashRedirect(guideIndexHref);
     writeFileSync(
-      guideIndex,
+      join(dist, guide.path, "index.html"),
       renderIndexPage(`${guide.path.replaceAll("-", " ")} guides`, guideLinks)
     );
     siteLinks.push({
@@ -132,10 +157,17 @@ for (const guide of guides) {
 
 writeFileSync(
   join(dist, "index.html"),
-  renderIndexPage("Dazzling Getaways — Client Cruise Guides", siteLinks)
+  renderIndexPage("Dazzling Getaways — Client Cruise Guides", siteLinks, {
+    showUrls: true,
+  })
 );
+
+writeFileSync(join(dist, "_redirects"), `${redirects.join("\n")}\n`);
 
 console.log("Built dist/ with the following paths:");
 for (const link of siteLinks) {
   console.log(`  ${link.href}`);
+  if (link.href.startsWith("/royal-caribbean")) {
+    console.log(`  /guides${link.href}`);
+  }
 }

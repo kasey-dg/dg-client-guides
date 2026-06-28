@@ -12,6 +12,19 @@ Dazzling Getaways client cruise guides, deployed as static HTML on Netlify.
 
 The root `/` lists all guides. The `dowdy-travel` folder also has its own index at `/dowdy-travel/` because it contains two guides.
 
+## Direct share links (Dazzling Getaways)
+
+Send clients straight to a guide — no need to visit the site home page first:
+
+| Guide | Direct URL |
+|---|---|
+| Royal Caribbean (generic) | `https://classy-arithmetic-78fde7.netlify.app/royal-caribbean-generic/` |
+| Icon of the Seas | `https://classy-arithmetic-78fde7.netlify.app/royal-caribbean-icon-of-the-seas/` |
+
+These paths also work without a trailing slash (Netlify redirects automatically). Each guide is also available by filename, e.g. `/royal-caribbean-generic/RC_Know_Before_You_Go_DG.html`.
+
+Repo-aligned mirrors live under `/guides/royal-caribbean-generic/` and `/guides/royal-caribbean-icon-of-the-seas/`.
+
 ## Local preview
 
 ```bash
