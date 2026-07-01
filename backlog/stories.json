@@ -1,0 +1,197 @@
+[
+  {
+    "id": "DG-001",
+    "title": "Establish HTML packing list template",
+    "story": "As a Dazzling Getaways client, I want a consistently styled packing list page so that every destination guide feels like it came from the same trusted source.",
+    "discipline": "content",
+    "status": "done",
+    "priority": 1,
+    "blocked_by": [],
+    "blocks": [
+      "DG-002",
+      "DG-003",
+      "DG-004",
+      "DG-005"
+    ],
+    "acceptance_criteria": [
+      "Given the template HTML, when rendered in a browser, then it has a DG logo/header, teal section header bars, yellow PRO TIP callouts, and checkbox-style list items matching the PDF visual language",
+      "Given a 375px mobile viewport, when the page loads, then all sections are readable without horizontal scrolling and no content is clipped",
+      "Given any of the 4 PDFs used as source, when the template is filled in, then all section types (Documents, Anti-Theft, Tech, Clothing, Toiletries, Hacks, Misc) can be represented without structural changes"
+    ],
+    "notes": "Template should be established by building the first guide (Caribbean or whichever is prioritized first), then reused for the remaining three."
+  },
+  {
+    "id": "DG-002",
+    "title": "Caribbean Cruise packing list HTML",
+    "story": "As a client booked on a Caribbean cruise, I want an HTML packing list so that I can access Kasey's checklist on any device without opening a PDF.",
+    "discipline": "content",
+    "status": "done",
+    "priority": 2,
+    "blocked_by": [
+      "DG-001"
+    ],
+    "blocks": [
+      "DG-006"
+    ],
+    "acceptance_criteria": [
+      "Given the source PDF, when content is extracted, then all 7 sections are present: Clothing & Shoes, Travel Documents & Money, Tech & Electronics, Beach & Pool, Toiletries & Health, Misc Essentials, Genius Cabin Hacks & Cruise Tips",
+      "Given the PRO TIP callouts in the PDF, when rendered in HTML, then all 3 tips appear in styled callout blocks with the correct text",
+      "Given Kasey's contact info in the PDF footer, when rendered in HTML, then kasey@dazzlinggetaways.com and 309.306.1633 are present",
+      "File saved to guides/Caribbean Cruise Packing List/DG_Caribbean_Cruise_Packing_List.html"
+    ],
+    "notes": "Source: DG Caribbean Cruise Packing List.pdf. Unique to this guide: cabin hacks section (magnetic hooks, SeaPass lanyard, power strip), beach & pool as its own section."
+  },
+  {
+    "id": "DG-003",
+    "title": "European Trip packing list HTML",
+    "story": "As a client traveling to Europe, I want an HTML packing list so that I can reference Kasey's checklist including the anti-theft and plug adapter guidance specific to European travel.",
+    "discipline": "content",
+    "status": "done",
+    "priority": 2,
+    "blocked_by": [
+      "DG-001"
+    ],
+    "blocks": [
+      "DG-007"
+    ],
+    "acceptance_criteria": [
+      "Given the source PDF, when content is extracted, then all 7 sections are present: Travel Documents & Money, Anti-Theft Essentials, Tech & Electronics, Misc Essentials, Clothing & Shoes, Toiletries & Health, Genius Travel Hacks & Europe Tips",
+      "Given the 3 PRO TIP callouts and 1 featured tip ('My #1 Europe Item'), when rendered, then all appear in styled callout blocks",
+      "Given ETIAS authorization is listed in the PDF, when rendered in HTML, then it appears in the Travel Documents section",
+      "File saved to guides/European Trip Packing List/DG_European_Trip_Packing_List.html"
+    ],
+    "notes": "Source: DG_European_Trip_Packing_List.pdf. Unique: ETIAS item, cobblestone clothing guidance, city-specific anti-theft focus (no waterproof pouch). Subtitle: 'cobblestones, cafés, and everything in between'."
+  },
+  {
+    "id": "DG-004",
+    "title": "Croatia packing list HTML",
+    "story": "As a client traveling to Croatia, I want an HTML packing list so that I have island-hopping and boat-day specific guidance in an easy-to-access format.",
+    "discipline": "content",
+    "status": "done",
+    "priority": 2,
+    "blocked_by": [
+      "DG-001"
+    ],
+    "blocks": [
+      "DG-008"
+    ],
+    "acceptance_criteria": [
+      "Given the source PDF, when content is extracted, then all 7 sections are present including Croatia-specific items: underwater phone case, quick-dry beach towel, snorkel gear, water shoes with 'rocky beaches are common in Croatia!' note",
+      "Given the plug adapter callout, when rendered, then it reads 'Type C/F for Croatia'",
+      "Given the currency note, when rendered, then it reads 'Croatia uses the euro' in the Travel Documents PRO TIP",
+      "File saved to guides/Croatia Packing List/DG_Croatia_Packing_List.html"
+    ],
+    "notes": "Source: DG_Croatia_Packing_List.pdf. Shares ~80% structure with Greece (DG-005) — use Greece as a diff check to catch any missed Croatia-specific text."
+  },
+  {
+    "id": "DG-005",
+    "title": "Greece packing list HTML",
+    "story": "As a client traveling to Greece, I want an HTML packing list so that I have Aegean island-specific guidance that's distinct from the Croatia list even where structure overlaps.",
+    "discipline": "content",
+    "status": "done",
+    "priority": 2,
+    "blocked_by": [
+      "DG-001"
+    ],
+    "blocks": [
+      "DG-009"
+    ],
+    "acceptance_criteria": [
+      "Given the source PDF, when content is extracted, then destination-specific text reads 'Greece' not 'Croatia' throughout (water shoes note, currency note, island tips header)",
+      "Given the plug adapter callout, when rendered, then it reads 'Type C/F for Greece'",
+      "Given the subtitle in the PDF, when rendered, then the subtitle reads 'sun-soaked islands, turquoise water, and Aegean magic' exactly",
+      "File saved to guides/Greece Packing List/DG_Greece_Packing_List.html"
+    ],
+    "notes": "Source: DG_Greece_Packing_List.pdf. Nearly identical to Croatia — key differences: 'Greece' vs 'Croatia' in destination text, subtitle wording, section header ('Aegean magic' vs 'Adriatic coastal magic')."
+  },
+  {
+    "id": "DG-006",
+    "title": "Register Caribbean Cruise packing list in build.mjs",
+    "story": "As a site visitor, I want the Caribbean Cruise packing list accessible at a clean URL so that Kasey can send a direct link to clients.",
+    "discipline": "engineering",
+    "status": "done",
+    "priority": 2,
+    "blocked_by": [
+      "DG-002"
+    ],
+    "blocks": [],
+    "acceptance_criteria": [
+      "Given an entry added to the guides array in scripts/build.mjs with path 'caribbean-cruise-packing-list', when npm run build runs, then no errors are thrown",
+      "Given the build completes, then dist/caribbean-cruise-packing-list/index.html exists",
+      "Given the URL /caribbean-cruise-packing-list/, when visited on the live site, then the Caribbean Cruise packing list loads"
+    ],
+    "notes": "Source folder: guides/Caribbean Cruise Packing List/ | File: DG_Caribbean_Cruise_Packing_List.html | URL: /caribbean-cruise-packing-list/"
+  },
+  {
+    "id": "DG-007",
+    "title": "Register European Trip packing list in build.mjs",
+    "story": "As a site visitor, I want the European Trip packing list accessible at a clean URL so that Kasey can send a direct link to clients.",
+    "discipline": "engineering",
+    "status": "done",
+    "priority": 2,
+    "blocked_by": [
+      "DG-003"
+    ],
+    "blocks": [],
+    "acceptance_criteria": [
+      "Given an entry added to the guides array in scripts/build.mjs with path 'european-trip-packing-list', when npm run build runs, then no errors are thrown",
+      "Given the build completes, then dist/european-trip-packing-list/index.html exists",
+      "Given the URL /european-trip-packing-list/, when visited on the live site, then the European Trip packing list loads"
+    ],
+    "notes": "Source folder: guides/European Trip Packing List/ | File: DG_European_Trip_Packing_List.html | URL: /european-trip-packing-list/"
+  },
+  {
+    "id": "DG-008",
+    "title": "Register Croatia packing list in build.mjs",
+    "story": "As a site visitor, I want the Croatia packing list accessible at a clean URL so that Kasey can send a direct link to clients.",
+    "discipline": "engineering",
+    "status": "done",
+    "priority": 2,
+    "blocked_by": [
+      "DG-004"
+    ],
+    "blocks": [],
+    "acceptance_criteria": [
+      "Given an entry added to the guides array in scripts/build.mjs with path 'croatia-packing-list', when npm run build runs, then no errors are thrown",
+      "Given the build completes, then dist/croatia-packing-list/index.html exists",
+      "Given the URL /croatia-packing-list/, when visited on the live site, then the Croatia packing list loads"
+    ],
+    "notes": "Source folder: guides/Croatia Packing List/ | File: DG_Croatia_Packing_List.html | URL: /croatia-packing-list/"
+  },
+  {
+    "id": "DG-009",
+    "title": "Register Greece packing list in build.mjs",
+    "story": "As a site visitor, I want the Greece packing list accessible at a clean URL so that Kasey can send a direct link to clients.",
+    "discipline": "engineering",
+    "status": "done",
+    "priority": 2,
+    "blocked_by": [
+      "DG-005"
+    ],
+    "blocks": [],
+    "acceptance_criteria": [
+      "Given an entry added to the guides array in scripts/build.mjs with path 'greece-packing-list', when npm run build runs, then no errors are thrown",
+      "Given the build completes, then dist/greece-packing-list/index.html exists",
+      "Given the URL /greece-packing-list/, when visited on the live site, then the Greece packing list loads"
+    ],
+    "notes": "Source folder: guides/Greece Packing List/ | File: DG_Greece_Packing_List.html | URL: /greece-packing-list/"
+  },
+  {
+    "id": "DG-010",
+    "title": "Add interactive checkbox state to packing list template",
+    "story": "As a client using the packing list on my phone, I want to check items off in my browser so that I can track what I've packed without printing anything.",
+    "discipline": "engineering",
+    "status": "blocked",
+    "priority": 3,
+    "blocked_by": [
+      "DG-001"
+    ],
+    "blocks": [],
+    "acceptance_criteria": [
+      "Given a client checks an item, when they reload the page on the same device and browser, then the checked state is preserved via localStorage",
+      "Given JavaScript is disabled, when the page loads, then all content is still readable and no layout is broken (progressive enhancement)",
+      "Given a client wants to reset, when they use a visible 'Clear all' control, then all checkboxes return to unchecked"
+    ],
+    "notes": "CONDITIONAL — implement only if interactive checkboxes are approved. Decision pending."
+  }
+]

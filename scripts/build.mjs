@@ -35,6 +35,46 @@ const guides = [
     ],
   },
   {
+    source: "guides/Caribbean Cruise Packing List",
+    path: "caribbean-cruise-packing-list",
+    pages: [
+      {
+        file: "DG_Caribbean_Cruise_Packing_List.html",
+        title: "Caribbean Cruise Packing List (Dazzling Getaways)",
+      },
+    ],
+  },
+  {
+    source: "guides/European Trip Packing List",
+    path: "european-trip-packing-list",
+    pages: [
+      {
+        file: "DG_European_Trip_Packing_List.html",
+        title: "European Trip Packing List (Dazzling Getaways)",
+      },
+    ],
+  },
+  {
+    source: "guides/Croatia Packing List",
+    path: "croatia-packing-list",
+    pages: [
+      {
+        file: "DG_Croatia_Packing_List.html",
+        title: "Croatia Packing List (Dazzling Getaways)",
+      },
+    ],
+  },
+  {
+    source: "guides/Greece Packing List",
+    path: "greece-packing-list",
+    pages: [
+      {
+        file: "DG_Greece_Packing_List.html",
+        title: "Greece Packing List (Dazzling Getaways)",
+      },
+    ],
+  },
+  {
     source: "dowdy-travel",
     path: "dowdy-travel",
     pages: [
