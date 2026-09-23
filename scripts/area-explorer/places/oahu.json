@@ -1,0 +1,191 @@
+{
+ "radius": 6000,
+ "walkLimit": 1600,
+ "places": {
+  "La Mer, Halekulani Hotel": {
+   "p": [
+    [
+     21.2789,
+     -157.8325
+    ]
+   ]
+  },
+  "Azure, The Royal Hawaiian": {
+   "p": [
+    [
+     21.2779,
+     -157.829
+    ]
+   ]
+  },
+  "Orchids, Halekulani Hotel": {
+   "p": [
+    [
+     21.2789,
+     -157.8325
+    ]
+   ],
+   "aka": [
+    "Orchids Sunday Brunch, Halekulani"
+   ]
+  },
+  "Mugen, ESPACIO The Jewel of Waikiki": {
+   "p": [
+    [
+     21.274,
+     -157.823
+    ]
+   ]
+  },
+  "House Without a Key, Halekulani": {
+   "p": [
+    [
+     21.2789,
+     -157.8325
+    ]
+   ]
+  },
+  "Ono Seafood": {
+   "p": [
+    [
+     21.281,
+     -157.814
+    ]
+   ]
+  },
+  "Helena's Hawaiian Food": {
+   "p": [
+    [
+     21.333,
+     -157.864
+    ]
+   ]
+  },
+  "Side Street Inn": {
+   "p": [
+    [
+     21.294,
+     -157.843
+    ],
+    [
+     21.2835,
+     -157.8135
+    ]
+   ]
+  },
+  "Rainbow Drive-In": {
+   "p": [
+    [
+     21.278,
+     -157.813
+    ]
+   ]
+  },
+  "Marugame Udon": {
+   "p": [
+    [
+     21.28,
+     -157.8275
+    ]
+   ]
+  },
+  "Maguro Brothers": {
+   "p": [
+    [
+     21.279,
+     -157.8295
+    ]
+   ]
+  },
+  "Nico's Pier 38": {
+   "p": [
+    [
+     21.316,
+     -157.874
+    ]
+   ]
+  },
+  "Hank's Haute Dogs": {
+   "p": [
+    [
+     21.2985,
+     -157.86
+    ]
+   ]
+  },
+  "The Pig and the Lady": {
+   "p": [
+    [
+     21.312,
+     -157.863
+    ]
+   ]
+  },
+  "Duke's Waikiki": {
+   "p": [
+    [
+     21.2767,
+     -157.8267
+    ]
+   ],
+   "aka": [
+    "Duke's Waikiki (breakfast)"
+   ]
+  },
+  "Eggs 'n Things": {
+   "p": [
+    [
+     21.28,
+     -157.831
+    ]
+   ]
+  },
+  "Island Vintage Coffee": {
+   "p": [
+    [
+     21.2785,
+     -157.829
+    ]
+   ]
+  },
+  "Liliha Bakery": {
+   "p": [
+    [
+     21.323,
+     -157.854
+    ]
+   ],
+   "aka": [
+    "Liliha Bakery, coco puffs"
+   ]
+  },
+  "Leonard's Bakery": {
+   "p": [
+    [
+     21.2848,
+     -157.813
+    ]
+   ],
+   "aka": [
+    "Leonard's Bakery, malasadas"
+   ]
+  },
+  "Musubi Cafe Iyasume": {
+   "p": [
+    [
+     21.2795,
+     -157.828
+    ]
+   ],
+   "at": "one of several Waikiki locations"
+  },
+  "Waiola Shave Ice": {
+   "p": [
+    [
+     21.29,
+     -157.832
+    ]
+   ]
+  }
+ }
+}

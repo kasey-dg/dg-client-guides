@@ -1,0 +1,78 @@
+{
+ "radius": 10000,
+ "walkLimit": 900,
+ "places": {
+  "Kafeneion I Palia Agora": {
+   "p": [
+    [
+     37.124,
+     25.236
+    ]
+   ],
+   "at": "Naoussa"
+  },
+  "Halaris Ouzeri": {
+   "p": [
+    [
+     37.028,
+     25.232
+    ]
+   ],
+   "at": "Piso Livadi"
+  },
+  "Rema Floga": {
+   "p": [
+    [
+     37.086,
+     25.15
+    ]
+   ],
+   "at": "Parikia"
+  },
+  "Galazia Hytra": {
+   "p": [
+    [
+     37.011,
+     25.066
+    ]
+   ],
+   "at": "Pounta"
+  },
+  "Kafeneio Drakakis": {
+   "p": [
+    [
+     36.973,
+     24.723
+    ]
+   ],
+   "at": "Apollonia"
+  },
+  "Bostani": {
+   "p": [
+    [
+     36.978,
+     24.728
+    ]
+   ],
+   "at": "Poulati"
+  },
+  "Cantina": {
+   "p": [
+    [
+     36.976,
+     24.748
+    ]
+   ],
+   "at": "near Kastro"
+  },
+  "Omega 3": {
+   "p": [
+    [
+     36.922,
+     24.74
+    ]
+   ],
+   "at": "Platis Gialos"
+  }
+ }
+}

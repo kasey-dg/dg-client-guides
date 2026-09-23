@@ -1,0 +1,244 @@
+{
+ "radius": 9000,
+ "walkLimit": 900,
+ "places": {
+  "Merriman's Kapalua": {
+   "p": [
+    [
+     21.0019,
+     -156.6641
+    ]
+   ]
+  },
+  "The Plantation House": {
+   "p": [
+    [
+     20.997,
+     -156.652
+    ]
+   ]
+  },
+  "Roy's Kaanapali": {
+   "p": [
+    [
+     20.934,
+     -156.688
+    ]
+   ]
+  },
+  "Leilani's on the Beach": {
+   "p": [
+    [
+     20.9246,
+     -156.695
+    ]
+   ],
+   "at": "Whalers Village"
+  },
+  "Star Noodle": {
+   "p": [
+    [
+     20.8895,
+     -156.6795
+    ]
+   ],
+   "at": "Front Street, Lahaina"
+  },
+  "Mala Ocean Tavern": {
+   "p": [
+    [
+     20.8888,
+     -156.68
+    ]
+   ]
+  },
+  "Hula Grill Kaanapali": {
+   "p": [
+    [
+     20.925,
+     -156.6948
+    ]
+   ]
+  },
+  "Haliimaile General Store": {
+   "p": [
+    [
+     20.8703,
+     -156.338
+    ]
+   ],
+   "r": 12000
+  },
+  "The Fish Market Maui": {
+   "p": [
+    [
+     20.954,
+     -156.686
+    ]
+   ]
+  },
+  "Monkeypod Kitchen": {
+   "p": [
+    [
+     20.9244,
+     -156.6951
+    ]
+   ]
+  },
+  "Kula Bistro": {
+   "p": [
+    [
+     20.763,
+     -156.328
+    ]
+   ],
+   "r": 12000,
+   "aka": [
+    "Kula Bistro (breakfast)"
+   ]
+  },
+  "Kula Lodge": {
+   "p": [
+    [
+     20.7614,
+     -156.3108
+    ]
+   ],
+   "r": 12000
+  },
+  "Leoda's Kitchen & Pie Shop": {
+   "p": [
+    [
+     20.8108,
+     -156.6212
+    ]
+   ]
+  },
+  "Burger Shack": {
+   "p": [
+    [
+     21.0122,
+     -156.6376
+    ]
+   ]
+  },
+  "Three's Bar & Grill": {
+   "p": [
+    [
+     20.7466,
+     -156.456
+    ]
+   ]
+  },
+  "Da Kitchen": {
+   "p": [
+    [
+     20.887,
+     -156.456
+    ]
+   ]
+  },
+  "Miso Phat Sushi": {
+   "p": [
+    [
+     20.772,
+     -156.458
+    ]
+   ]
+  },
+  "Honu Oceanside": {
+   "p": [
+    [
+     20.8885,
+     -156.6797
+    ]
+   ]
+  },
+  "Joey's Kitchen": {
+   "p": [
+    [
+     20.996,
+     -156.666
+    ],
+    [
+     20.9246,
+     -156.695
+    ]
+   ],
+   "at": "Napili Plaza and Whalers Village"
+  },
+  "Tin Roof": {
+   "p": [
+    [
+     20.8866,
+     -156.4625
+    ]
+   ]
+  },
+  "Duke's Beach House": {
+   "p": [
+    [
+     20.946,
+     -156.692
+    ]
+   ]
+  },
+  "The Gazebo": {
+   "p": [
+    [
+     20.9934,
+     -156.668
+    ]
+   ]
+  },
+  "Sea House Restaurant": {
+   "p": [
+    [
+     21.0003,
+     -156.6677
+    ]
+   ]
+  },
+  "Hooked": {
+   "p": [
+    [
+     20.953,
+     -156.687
+    ]
+   ]
+  },
+  "Da Nani Pirates": {
+   "p": [
+    [
+     20.9535,
+     -156.6868
+    ]
+   ]
+  },
+  "Ululani's": {
+   "p": [
+    [
+     20.9165,
+     -156.695
+    ]
+   ],
+   "at": "Hyatt Regency Kaanapali cart"
+  },
+  "Local Boys Shave Ice": {
+   "p": [
+    [
+     20.8738,
+     -156.6771
+    ]
+   ]
+  },
+  "Big Wave Shave Ice": {
+   "p": [
+    [
+     20.954,
+     -156.69
+    ]
+   ]
+  }
+ }
+}

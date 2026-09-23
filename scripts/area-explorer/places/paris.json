@@ -1,0 +1,276 @@
+{
+ "radius": 1250,
+ "walkLimit": 1250,
+ "places": {
+  "Eiffel Tower": {
+   "p": [
+    [
+     48.8584,
+     2.2945
+    ]
+   ]
+  },
+  "The Louvre": {
+   "p": [
+    [
+     48.8606,
+     2.3376
+    ]
+   ]
+  },
+  "Seine River Cruise": {
+   "p": [
+    [
+     48.8601,
+     2.2934
+    ]
+   ],
+   "at": "most cruises board near the Eiffel Tower"
+  },
+  "Notre-Dame & Sainte-Chapelle": {
+   "p": [
+    [
+     48.853,
+     2.3499
+    ],
+    [
+     48.8554,
+     2.345
+    ]
+   ]
+  },
+  "Montmartre": {
+   "p": [
+    [
+     48.8867,
+     2.3431
+    ]
+   ]
+  },
+  "The Paris Catacombs": {
+   "p": [
+    [
+     48.8339,
+     2.3324
+    ]
+   ]
+  },
+  "Laduree": {
+   "p": [
+    [
+     48.871,
+     2.3031
+    ]
+   ],
+   "at": "Champs-Élysées"
+  },
+  "Pierre Herme": {
+   "p": [
+    [
+     48.8513,
+     2.3326
+    ]
+   ],
+   "at": "Rue Bonaparte"
+  },
+  "Angelina": {
+   "p": [
+    [
+     48.865,
+     2.3285
+    ]
+   ],
+   "at": "Rue de Rivoli"
+  },
+  "Carette at Trocadero": {
+   "p": [
+    [
+     48.8637,
+     2.2872
+    ]
+   ]
+  },
+  "Palais Royal Gardens": {
+   "p": [
+    [
+     48.865,
+     2.3375
+    ]
+   ]
+  },
+  "Musee d'Orsay": {
+   "p": [
+    [
+     48.86,
+     2.3266
+    ]
+   ]
+  },
+  "Canal Saint-Martin": {
+   "p": [
+    [
+     48.871,
+     2.3655
+    ]
+   ]
+  },
+  "Bourse de Commerce / Pinault Collection": {
+   "p": [
+    [
+     48.8628,
+     2.3428
+    ]
+   ]
+  },
+  "Ile Saint-Louis": {
+   "p": [
+    [
+     48.8517,
+     2.3567
+    ]
+   ]
+  },
+  "Le Marais": {
+   "p": [
+    [
+     48.8572,
+     2.3595
+    ]
+   ]
+  },
+  "Marche aux Puces de Saint-Ouen": {
+   "p": [
+    [
+     48.9016,
+     2.3435
+    ]
+   ]
+  },
+  "Le Bon Marche & La Grande Epicerie": {
+   "p": [
+    [
+     48.8509,
+     2.3245
+    ]
+   ]
+  },
+  "Marche d'Aligre": {
+   "p": [
+    [
+     48.849,
+     2.3786
+    ]
+   ]
+  },
+  "Galeries Lafayette Haussmann": {
+   "p": [
+    [
+     48.8738,
+     2.332
+    ]
+   ]
+  },
+  "Rue du Bac & Saint-Germain boutiques": {
+   "p": [
+    [
+     48.8545,
+     2.3265
+    ]
+   ]
+  },
+  "Versailles": {
+   "p": [
+    [
+     48.8049,
+     2.1204
+    ]
+   ],
+   "trip": true
+  },
+  "Giverny, Monet's Garden": {
+   "p": [
+    [
+     49.0754,
+     1.5339
+    ]
+   ],
+   "trip": true
+  },
+  "Champagne Region": {
+   "p": [
+    [
+     49.2583,
+     4.0317
+    ],
+    [
+     49.04,
+     3.96
+    ]
+   ],
+   "trip": true,
+   "at": "Reims and Épernay"
+  },
+  "Loire Valley Chateaux": {
+   "p": [
+    [
+     47.6161,
+     1.517
+    ],
+    [
+     47.3249,
+     1.0703
+    ]
+   ],
+   "trip": true,
+   "at": "Chambord and Chenonceau"
+  },
+  "La Fontaine de Mars (7th)": {
+   "p": [
+    [
+     48.8575,
+     2.3009
+    ]
+   ]
+  },
+  "Bistrot Paul Bert (11th)": {
+   "p": [
+    [
+     48.8521,
+     2.3833
+    ]
+   ]
+  },
+  "Brasserie Martin (11th)": {
+   "p": [
+    [
+     48.8625,
+     2.3745
+    ]
+   ]
+  },
+  "Les Deux Magots (Saint-Germain)": {
+   "p": [
+    [
+     48.854,
+     2.333
+    ]
+   ]
+  },
+  "Au Pied de Cochon (Les Halles)": {
+   "p": [
+    [
+     48.8636,
+     2.3447
+    ]
+   ]
+  },
+  "Le Comptoir du Relais (Saint-Germain)": {
+   "p": [
+    [
+     48.8521,
+     2.3389
+    ]
+   ]
+  }
+ }
+}

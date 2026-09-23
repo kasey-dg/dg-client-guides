@@ -1,0 +1,206 @@
+{
+ "radius": 12000,
+ "walkLimit": 900,
+ "places": {
+  "The Canoe House, Mauna Lani (Auberge)": {
+   "p": [
+    [
+     19.948,
+     -155.862
+    ]
+   ]
+  },
+  "'Ulu Ocean Grill, Four Seasons Hualalai": {
+   "p": [
+    [
+     19.823,
+     -156.001
+    ]
+   ]
+  },
+  "Brown's Beach House, Fairmont Orchid": {
+   "p": [
+    [
+     19.953,
+     -155.862
+    ]
+   ]
+  },
+  "Merriman's Waimea": {
+   "p": [
+    [
+     20.024,
+     -155.668
+    ]
+   ]
+  },
+  "Huggo's": {
+   "p": [
+    [
+     19.636,
+     -155.994
+    ]
+   ]
+  },
+  "Cafe Pesto": {
+   "p": [
+    [
+     19.724,
+     -155.086
+    ]
+   ]
+  },
+  "Da Poke Shack": {
+   "p": [
+    [
+     19.615,
+     -155.976
+    ]
+   ]
+  },
+  "Umeke's Fish Market Bar & Grill": {
+   "p": [
+    [
+     19.64,
+     -155.996
+    ]
+   ],
+   "aka": [
+    "Umeke's"
+   ]
+  },
+  "Pueo's Osteria": {
+   "p": [
+    [
+     19.928,
+     -155.789
+    ]
+   ]
+  },
+  "The Fish and The Hog": {
+   "p": [
+    [
+     20.025,
+     -155.659
+    ]
+   ]
+  },
+  "Teshima's": {
+   "p": [
+    [
+     19.551,
+     -155.929
+    ]
+   ]
+  },
+  "Ken's House of Pancakes": {
+   "p": [
+    [
+     19.72,
+     -155.068
+    ]
+   ]
+  },
+  "Hawaiian Style Cafe": {
+   "p": [
+    [
+     19.722,
+     -155.085
+    ],
+    [
+     20.023,
+     -155.672
+    ]
+   ],
+   "at": "Hilo and Waimea"
+  },
+  "What's Shakin'": {
+   "p": [
+    [
+     19.852,
+     -155.093
+    ]
+   ]
+  },
+  "Foster's Kitchen": {
+   "p": [
+    [
+     19.638,
+     -155.993
+    ]
+   ]
+  },
+  "Kanaka Kava": {
+   "p": [
+    [
+     19.6395,
+     -155.9955
+    ]
+   ]
+  },
+  "Island Lava Java": {
+   "p": [
+    [
+     19.6385,
+     -155.9935
+    ]
+   ]
+  },
+  "808 Grindz Cafe": {
+   "p": [
+    [
+     19.9285,
+     -155.7885
+    ]
+   ]
+  },
+  "The Coffee Shack": {
+   "p": [
+    [
+     19.482,
+     -155.899
+    ]
+   ]
+  },
+  "Splasher's Grill": {
+   "p": [
+    [
+     19.6402,
+     -155.9952
+    ]
+   ]
+  },
+  "Bite the Eye": {
+   "p": [
+    [
+     19.697,
+     -155.066
+    ]
+   ]
+  },
+  "Scandinavian Shave Ice": {
+   "p": [
+    [
+     19.6405,
+     -155.996
+    ]
+   ]
+  },
+  "Kula Shave Ice": {
+   "p": [
+    [
+     19.725,
+     -155.087
+    ]
+   ]
+  },
+  "Wilson's By the Bay": {
+   "p": [
+    [
+     19.723,
+     -155.085
+    ]
+   ]
+  }
+ }
+}

@@ -1,0 +1,209 @@
+{
+ "radius": 9000,
+ "walkLimit": 900,
+ "places": {
+  "Tidepools, Grand Hyatt Kauai": {
+   "p": [
+    [
+     21.8795,
+     -159.446
+    ]
+   ]
+  },
+  "The Beach House Restaurant": {
+   "p": [
+    [
+     21.8811,
+     -159.493
+    ]
+   ]
+  },
+  "Red Salt, Koa Kea Hotel": {
+   "p": [
+    [
+     21.8733,
+     -159.459
+    ]
+   ],
+   "aka": [
+    "Red Salt (breakfast)"
+   ]
+  },
+  "RumFire Poipu Beach": {
+   "p": [
+    [
+     21.8745,
+     -159.465
+    ]
+   ]
+  },
+  "Merriman's Fish House, Poipu": {
+   "p": [
+    [
+     21.884,
+     -159.4805
+    ]
+   ]
+  },
+  "Koloa Fish Market": {
+   "p": [
+    [
+     21.904,
+     -159.464
+    ]
+   ]
+  },
+  "Keoki's Paradise": {
+   "p": [
+    [
+     21.8795,
+     -159.462
+    ]
+   ]
+  },
+  "Brennecke's Beach Broiler": {
+   "p": [
+    [
+     21.8743,
+     -159.454
+    ]
+   ]
+  },
+  "Hamura Saimin": {
+   "p": [
+    [
+     21.973,
+     -159.366
+    ]
+   ]
+  },
+  "Eating House 1849": {
+   "p": [
+    [
+     21.8843,
+     -159.48
+    ]
+   ]
+  },
+  "Kiawe Roots": {
+   "p": [
+    [
+     21.915,
+     -159.503
+    ]
+   ]
+  },
+  "Hanalei Poke": {
+   "p": [
+    [
+     22.204,
+     -159.499
+    ]
+   ]
+  },
+  "Tahiti Nui": {
+   "p": [
+    [
+     22.202,
+     -159.499
+    ]
+   ]
+  },
+  "Kenji Burger": {
+   "p": [
+    [
+     22.076,
+     -159.318
+    ]
+   ]
+  },
+  "The Dolphin Restaurant": {
+   "p": [
+    [
+     22.206,
+     -159.497
+    ]
+   ]
+  },
+  "Break & Feast": {
+   "p": [
+    [
+     21.8797,
+     -159.4617
+    ]
+   ]
+  },
+  "Little Fish Coffee": {
+   "p": [
+    [
+     21.9065,
+     -159.469
+    ]
+   ]
+  },
+  "Holoholo Grill, Koloa Landing Resort": {
+   "p": [
+    [
+     21.879,
+     -159.47
+    ]
+   ]
+  },
+  "Kalaheo Cafe & Coffee": {
+   "p": [
+    [
+     21.9253,
+     -159.529
+    ]
+   ]
+  },
+  "The Musubi Truck": {
+   "p": [
+    [
+     21.9005,
+     -159.4645
+    ]
+   ]
+  },
+  "Taco Libre": {
+   "p": [
+    [
+     21.9066,
+     -159.4688
+    ]
+   ]
+  },
+  "Eden Coffee": {
+   "p": [
+    [
+     21.9063,
+     -159.47
+    ]
+   ]
+  },
+  "The Fresh Shave": {
+   "p": [
+    [
+     21.9068,
+     -159.4685
+    ]
+   ]
+  },
+  "Waikomo Shave Ice": {
+   "p": [
+    [
+     21.883,
+     -159.463
+    ]
+   ]
+  },
+  "Koloa Mill Ice Cream & Coffee": {
+   "p": [
+    [
+     21.9064,
+     -159.4693
+    ]
+   ]
+  }
+ }
+}

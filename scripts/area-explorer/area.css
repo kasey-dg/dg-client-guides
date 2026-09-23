@@ -1,0 +1,52 @@
+/* ── Area explorer (shared across guides; source: scripts/area-explorer) ── */
+.card p > .place-link{font-weight:600;color:var(--text-dark)}
+.place-link{all:unset;cursor:pointer;display:inline;color:inherit;font:inherit;line-height:inherit;border-radius:3px}
+.place-link .pl-text{background-image:linear-gradient(var(--turquoise),var(--turquoise));background-size:100% 2px;background-position:0 100%;background-repeat:no-repeat;padding-bottom:1px;transition:background-size .15s}
+.place-link:hover .pl-text{background-image:linear-gradient(var(--coral),var(--coral))}
+.place-link .pl-pin{display:inline-block;width:.95em;height:.95em;margin-left:.3em;vertical-align:-.1em;color:var(--coral)}
+.place-link:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.area-hint{display:flex;align-items:center;gap:8px;justify-content:center;font-size:.8rem;color:var(--teal-dark);margin:-10px auto 24px;max-width:44rem;text-align:center}
+.area-hint svg{flex:none;width:15px;height:15px;color:var(--coral)}
+
+.main.is-area > :not(#area-view){display:none!important}
+#area-view{display:none;margin-top:0}
+.main.is-area #area-view{display:block}
+.area-back{display:inline-flex;align-items:center;gap:6px;background:none;border:2px solid var(--teal);color:var(--teal);border-radius:999px;padding:7px 16px 7px 12px;font:600 .78rem 'Montserrat',sans-serif;cursor:pointer;margin-bottom:18px}
+.area-back:hover{background:var(--teal);color:#fff}
+.area-back svg{width:14px;height:14px}
+#area-view > h2{font-family:'Playfair Display',serif;color:var(--teal);font-size:1.9rem;line-height:1.2;padding-bottom:8px;border-bottom:3px solid var(--coral);margin-bottom:10px}
+#area-view > h2:focus{outline:none}
+.area-sub{color:var(--text-mid);line-height:1.6;font-size:.92rem;max-width:46rem;margin-bottom:16px}
+.area-map-wrap{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:2px solid var(--turquoise);background:var(--teal-light)}
+#area-map{height:440px;width:100%}
+.area-map-fallback{padding:40px 20px;text-align:center;color:var(--text-mid);font-size:.88rem}
+.map-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.76rem;color:var(--text-mid);margin:10px 2px 4px;align-items:center}
+.map-legend span{display:inline-flex;align-items:center;gap:6px}
+.lg-dot{width:12px;height:12px;border-radius:50%;display:inline-block;flex:none}
+.lg-you{background:var(--coral);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--coral)}
+.lg-guide{background:var(--teal);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--teal)}
+.lg-other{background:#fff;border:2px solid #8a9a9c;width:10px;height:10px}
+.osm-status{font-size:.74rem;color:var(--text-muted);min-height:1.2em;margin:0 2px 8px}
+.area-group{font-family:'Playfair Display',serif;color:var(--teal-dark);font-size:1.3rem;margin:30px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--turquoise)}
+.area-group .count{font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;color:var(--text-muted);margin-left:8px}
+.card.is-picked{border-top-color:var(--coral);box-shadow:0 0 0 2px var(--coral),var(--shadow)}
+.walk{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;font-weight:600;color:var(--teal-dark);background:var(--teal-light);border-radius:999px;padding:3px 10px 3px 8px;margin-bottom:8px}
+.walk svg{width:12px;height:12px}
+.card.is-picked .walk{background:#ffe4e2;color:#b0332d}
+.area-empty{background:var(--white);border-radius:var(--radius);padding:18px 22px;color:var(--text-mid);line-height:1.6;font-size:.9rem;box-shadow:var(--shadow)}
+
+/* map markers */
+.dg-pin{width:18px;height:18px;border-radius:50%;border:3px solid #fff;box-shadow:0 1px 6px rgba(0,0,0,.35)}
+.dg-pin.you{background:var(--coral);width:26px;height:26px;margin:-4px 0 0 -4px}
+.dg-pin.guide{background:var(--teal)}
+.leaflet-container{font-family:'Montserrat',sans-serif}
+.leaflet-popup-content{margin:12px 14px;font-size:.82rem;line-height:1.45}
+.leaflet-popup-content strong{display:block;font-family:'Playfair Display',serif;font-size:1rem;color:var(--teal-dark);margin-bottom:2px}
+.leaflet-popup-content .pp-sec{color:var(--text-muted);font-size:.74rem}
+.leaflet-popup-content button{margin-top:8px;background:var(--teal);color:#fff;border:0;border-radius:999px;padding:6px 12px;font:600 .74rem 'Montserrat',sans-serif;cursor:pointer}
+.leaflet-popup-content button:hover{background:var(--teal-dark)}
+.leaflet-tooltip.other-tip{font-size:.72rem;padding:3px 7px}
+
+@media (max-width:640px){#area-map{height:320px}#area-view > h2{font-size:1.5rem}}
+@media (prefers-reduced-motion:reduce){.place-link .pl-text{transition:none}}
+@media print{.place-link .pl-pin,.area-hint,.area-back,.area-map-wrap,.map-legend,.osm-status{display:none!important}.place-link .pl-text{background:none}}

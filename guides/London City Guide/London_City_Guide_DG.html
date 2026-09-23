@@ -44,7 +44,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
 .print-btn{display:none!important}body{background:#fff}.hero{padding:12px 24px 16px}.hero::after,.hero-wave{display:none}
 .hero-logo{height:52px;margin-bottom:6px}.hero h1{font-size:1.5rem}.main{padding:12px 0}section{margin-top:22px}
 .card,.pro-tip,.note-box,.intro{break-inside:avoid}section>h2{break-after:avoid}.card{box-shadow:none;border:1px solid #d9eeee;border-top:4px solid var(--turquoise)}}
-/* ── Explore-this-area feature ─────────────────────────── */
+</style>
+<style id="area-explorer-css">
+/* ── Area explorer (shared across guides; source: scripts/area-explorer) ── */
+.card p > .place-link{font-weight:600;color:var(--text-dark)}
 .place-link{all:unset;cursor:pointer;display:inline;color:inherit;font:inherit;line-height:inherit;border-radius:3px}
 .place-link .pl-text{background-image:linear-gradient(var(--turquoise),var(--turquoise));background-size:100% 2px;background-position:0 100%;background-repeat:no-repeat;padding-bottom:1px;transition:background-size .15s}
 .place-link:hover .pl-text{background-image:linear-gradient(var(--coral),var(--coral))}
@@ -178,158 +181,120 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
 <article class="card"><h3>Kensington</h3><p>Museum Row is here — the Natural History Museum, the V&amp;A, and the Science Museum are all within a five-minute walk of each other, which is a frankly unreasonable amount of brilliance in one postcode. Kensington Palace sits at the edge of the park (Princess Diana&#x27;s former home), and the streets around Kensington Church Street are ideal for antique hunting and independent restaurants. South Kensington in particular has a distinctly Parisian feel — wide boulevards, beautiful buildings, great patisseries.</p><div class=tags><span class="tag">★ Museums &amp; elegance</span></div></article>
 <article class="card"><h3>Greenwich</h3><p>Technically south-east London, but easily worth the journey — and the best way to arrive is by Thames River Cruise from Westminster, which is an experience in itself. Greenwich is where time literally begins: the Prime Meridian runs through the Royal Observatory here, and you can stand with one foot in each hemisphere. The market, the Cutty Sark clipper ship, the gorgeous park, and the sweeping city skyline view from the top of the hill make this one of London&#x27;s most rewarding half-day trips.</p><div class=tags><span class="tag">★ Half-day trip</span></div></article></div><div class="pro-tip"><strong>Good to know</strong>The beauty of London is that you can walk between most of these neighborhoods — Covent Garden to Soho is five minutes on foot, Mayfair to Hyde Park Corner is ten. Build your days around neighborhoods rather than individual attractions, and the city starts to make a lot more sense.</div></section>
 </main>
+<!-- area-explorer:start -->
+<script>window.DG_AREA = {"radius":1250,"walkLimit":1250,"places":{"Tower of London":{"p":[[51.5081,-0.0759]]},"British Museum":{"p":[[51.5194,-0.127]]},"Natural History Museum":{"p":[[51.4967,-0.1764]]},"Tate Modern":{"p":[[51.5076,-0.0994]]},"Westminster Abbey":{"p":[[51.4993,-0.1273]]},"The London Eye":{"p":[[51.5033,-0.1196]]},"Buckingham Palace":{"p":[[51.5014,-0.1419]]},"St. Paul's Cathedral":{"p":[[51.5138,-0.0984]]},"Kew Gardens":{"p":[[51.4787,-0.2956]],"r":2000},"Thames River Cruise":{"p":[[51.5017,-0.1234]],"at":"Westminster Pier"},"Borough Market":{"p":[[51.5055,-0.091]]},"The Lion King":{"p":[[51.5116,-0.12]],"at":"Lyceum Theatre"},"Hamilton":{"p":[[51.4966,-0.1427]],"at":"Victoria Palace Theatre"},"Les Misérables":{"p":[[51.5125,-0.1307]],"at":"Sondheim Theatre"},"Harry Potter & the Cursed Child":{"p":[[51.5133,-0.1291]],"at":"Palace Theatre"},"Wicked":{"p":[[51.4959,-0.1428]],"at":"Apollo Victoria Theatre"},"The Royal Opera House":{"p":[[51.5129,-0.1222]]},"Sketch, Mayfair":{"p":[[51.5126,-0.1419]]},"St. Ermin's Hotel, Westminster":{"p":[[51.4987,-0.1339]]},"Charlie & The Chocolate Factory at One Aldwych":{"p":[[51.5117,-0.1195]]},"Taylor Swift Inspired Afternoon Tea Bus Tour":{"p":[[51.4952,-0.1441]],"at":"departs from Victoria"},"Hyde Park":{"p":[[51.5073,-0.1657]],"r":2000},"St. James's Park":{"p":[[51.5025,-0.1348]]},"Regent's Park":{"p":[[51.5313,-0.157]],"r":2000},"Hampstead Heath":{"p":[[51.5608,-0.163]],"r":2000},"Greenwich Park":{"p":[[51.4769,-0.0005]]},"Richmond Park":{"p":[[51.4428,-0.276]],"r":2500},"Dennis Severs' House":{"p":[[51.5205,-0.0773]]},"Viktor Wynd Museum of Curiosities":{"p":[[51.5337,-0.0573]]},"Hunterian Museum":{"p":[[51.5159,-0.1164]]},"Sky Garden":{"p":[[51.5113,-0.0835]]},"Eltham Palace":{"p":[[51.4474,0.0487]]},"Regent's Canal Walk":{"p":[[51.5354,-0.1253]],"at":"starts at King's Cross"},"God's Own Junkyard":{"p":[[51.5822,-0.0138]]},"Primrose Hill":{"p":[[51.5394,-0.1608]]},"Highgate Cemetery":{"p":[[51.567,-0.147]]},"Jack the Ripper Tour, Whitechapel":{"p":[[51.5194,-0.0747]],"at":"ends at the Ten Bells"},"Dishoom (multiple locations)":{"p":[[51.5124,-0.1271],[51.5246,-0.077],[51.5357,-0.1253],[51.5128,-0.1395],[51.5013,-0.1917]],"at":"showing the Covent Garden location"},"St. JOHN, Smithfield":{"p":[[51.5203,-0.1016]]},"Rochelle Canteen":{"p":[[51.5262,-0.0754]]},"Brat, Shoreditch":{"p":[[51.5241,-0.0772]]},"Trullo, Highbury":{"p":[[51.5463,-0.1024]]},"BiBi, Mayfair":{"p":[[51.5134,-0.1541]]},"Mangal 2, Dalston":{"p":[[51.5498,-0.0752]]},"Duck & Waffle":{"p":[[51.5163,-0.0809]]},"The Wolseley":{"p":[[51.5073,-0.1409]]},"Stonehenge & Bath":{"p":[[51.1789,-1.8262],[51.3811,-2.359]],"trip":true},"Windsor Castle":{"p":[[51.4839,-0.6044]],"trip":true},"The Cotswolds":{"p":[[51.885,-1.7589],[51.8076,-1.6356],[52.0513,-1.7802]],"trip":true,"at":"Bourton-on-the-Water, Burford and Chipping Campden"},"Warner Bros. Studio Tour — Harry Potter":{"p":[[51.6903,-0.4183]],"trip":true},"Ye Olde Cheshire Cheese, Fleet Street":{"p":[[51.5144,-0.1071]]},"The George Inn, Borough":{"p":[[51.504,-0.0906]]},"The Prospect of Whitby, Wapping":{"p":[[51.5069,-0.0513]]},"The Devonshire, Soho":{"p":[[51.5104,-0.1348]]},"The Harwood Arms, Fulham":{"p":[[51.4814,-0.1996]]},"The Lamb & Flag, Covent Garden":{"p":[[51.5117,-0.126]]},"Covent Garden":{"p":[[51.5117,-0.124]]},"Soho":{"p":[[51.5136,-0.134]]},"Mayfair":{"p":[[51.51,-0.148]]},"Notting Hill":{"p":[[51.513,-0.205]]},"Marylebone":{"p":[[51.5202,-0.152]]},"South Bank":{"p":[[51.5055,-0.116]]},"Shoreditch":{"p":[[51.5255,-0.079]]},"Piccadilly & St. James's":{"p":[[51.5075,-0.137]]},"Chelsea & King's Road":{"p":[[51.4875,-0.1687]]},"Kensington":{"p":[[51.4975,-0.175]]},"Greenwich":{"p":[[51.481,-0.005]]}}};</script>
 <script>
+/* Area explorer: tap a place name, see everything nearby from the same guide on a map.
+   Shared source lives in scripts/area-explorer/. Per-guide places live in places/*.json.
+   Re-inject into guides with: node scripts/add-area-explorer.mjs */
 (function () {
   "use strict";
-
-  // Where each place in the guide is. Multiple points = multiple locations.
-  // r = how far (metres) counts as "nearby"; trip = day trip outside London.
-  var PLACES = {
-    "Tower of London": { p: [[51.5081, -0.0759]] },
-    "British Museum": { p: [[51.5194, -0.1270]] },
-    "Natural History Museum": { p: [[51.4967, -0.1764]] },
-    "Tate Modern": { p: [[51.5076, -0.0994]] },
-    "Westminster Abbey": { p: [[51.4993, -0.1273]] },
-    "The London Eye": { p: [[51.5033, -0.1196]] },
-    "Buckingham Palace": { p: [[51.5014, -0.1419]] },
-    "St. Paul's Cathedral": { p: [[51.5138, -0.0984]] },
-    "Kew Gardens": { p: [[51.4787, -0.2956]], r: 2000 },
-    "Thames River Cruise": { p: [[51.5017, -0.1234]], at: "Westminster Pier" },
-    "Borough Market": { p: [[51.5055, -0.0910]] },
-    "The Lion King": { p: [[51.5116, -0.1200]], at: "Lyceum Theatre" },
-    "Hamilton": { p: [[51.4966, -0.1427]], at: "Victoria Palace Theatre" },
-    "Les Misérables": { p: [[51.5125, -0.1307]], at: "Sondheim Theatre" },
-    "Harry Potter & the Cursed Child": { p: [[51.5133, -0.1291]], at: "Palace Theatre" },
-    "Wicked": { p: [[51.4959, -0.1428]], at: "Apollo Victoria Theatre" },
-    "The Royal Opera House": { p: [[51.5129, -0.1222]] },
-    "Sketch, Mayfair": { p: [[51.5126, -0.1419]] },
-    "St. Ermin's Hotel, Westminster": { p: [[51.4987, -0.1339]] },
-    "Charlie & The Chocolate Factory at One Aldwych": { p: [[51.5117, -0.1195]] },
-    "Taylor Swift Inspired Afternoon Tea Bus Tour": { p: [[51.4952, -0.1441]], at: "departs from Victoria" },
-    "Hyde Park": { p: [[51.5073, -0.1657]], r: 2000 },
-    "St. James's Park": { p: [[51.5025, -0.1348]] },
-    "Regent's Park": { p: [[51.5313, -0.1570]], r: 2000 },
-    "Hampstead Heath": { p: [[51.5608, -0.1630]], r: 2000 },
-    "Greenwich Park": { p: [[51.4769, -0.0005]] },
-    "Richmond Park": { p: [[51.4428, -0.2760]], r: 2500 },
-    "Dennis Severs' House": { p: [[51.5205, -0.0773]] },
-    "Viktor Wynd Museum of Curiosities": { p: [[51.5337, -0.0573]] },
-    "Hunterian Museum": { p: [[51.5159, -0.1164]] },
-    "Sky Garden": { p: [[51.5113, -0.0835]] },
-    "Eltham Palace": { p: [[51.4474, 0.0487]] },
-    "Regent's Canal Walk": { p: [[51.5354, -0.1253]], at: "starts at King's Cross" },
-    "God's Own Junkyard": { p: [[51.5822, -0.0138]] },
-    "Primrose Hill": { p: [[51.5394, -0.1608]] },
-    "Highgate Cemetery": { p: [[51.5670, -0.1470]] },
-    "Jack the Ripper Tour, Whitechapel": { p: [[51.5194, -0.0747]], at: "ends at the Ten Bells" },
-    "Dishoom (multiple locations)": {
-      p: [[51.5124, -0.1271], [51.5246, -0.0770], [51.5357, -0.1253], [51.5128, -0.1395], [51.5013, -0.1917]],
-      at: "showing the Covent Garden location"
-    },
-    "St. JOHN, Smithfield": { p: [[51.5203, -0.1016]] },
-    "Rochelle Canteen": { p: [[51.5262, -0.0754]] },
-    "Brat, Shoreditch": { p: [[51.5241, -0.0772]] },
-    "Trullo, Highbury": { p: [[51.5463, -0.1024]] },
-    "BiBi, Mayfair": { p: [[51.5134, -0.1541]] },
-    "Mangal 2, Dalston": { p: [[51.5498, -0.0752]] },
-    "Duck & Waffle": { p: [[51.5163, -0.0809]] },
-    "The Wolseley": { p: [[51.5073, -0.1409]] },
-    "Stonehenge & Bath": { p: [[51.1789, -1.8262], [51.3811, -2.3590]], trip: true },
-    "Windsor Castle": { p: [[51.4839, -0.6044]], trip: true },
-    "The Cotswolds": { p: [[51.8850, -1.7589], [51.8076, -1.6356], [52.0513, -1.7802]], trip: true, at: "Bourton-on-the-Water, Burford and Chipping Campden" },
-    "Warner Bros. Studio Tour — Harry Potter": { p: [[51.6903, -0.4183]], trip: true },
-    "Ye Olde Cheshire Cheese, Fleet Street": { p: [[51.5144, -0.1071]] },
-    "The George Inn, Borough": { p: [[51.5040, -0.0906]] },
-    "The Prospect of Whitby, Wapping": { p: [[51.5069, -0.0513]] },
-    "The Devonshire, Soho": { p: [[51.5104, -0.1348]] },
-    "The Harwood Arms, Fulham": { p: [[51.4814, -0.1996]] },
-    "The Lamb & Flag, Covent Garden": { p: [[51.5117, -0.1260]] },
-    "Covent Garden": { p: [[51.5117, -0.1240]], hood: true },
-    "Soho": { p: [[51.5136, -0.1340]], hood: true },
-    "Mayfair": { p: [[51.5100, -0.1480]], hood: true },
-    "Notting Hill": { p: [[51.5130, -0.2050]], hood: true },
-    "Marylebone": { p: [[51.5202, -0.1520]], hood: true },
-    "South Bank": { p: [[51.5055, -0.1160]], hood: true },
-    "Shoreditch": { p: [[51.5255, -0.0790]], hood: true },
-    "Piccadilly & St. James's": { p: [[51.5075, -0.1370]], hood: true },
-    "Chelsea & King's Road": { p: [[51.4875, -0.1687]], hood: true },
-    "Kensington": { p: [[51.4975, -0.1750]], hood: true },
-    "Greenwich": { p: [[51.4810, -0.0050]], hood: true }
-  };
-
-  var WALK_RADIUS = 1250;      // ~20 minutes on foot along real streets
-  var TRIP_RADIUS = 3000;      // look-around radius for day-trip towns
+  var CFG = window.DG_AREA || {};
+  var PLACES = CFG.places || {};
+  var RADIUS = CFG.radius || 1250;          // what counts as "nearby" (metres, straight line)
+  var WALK_LIMIT = CFG.walkLimit || RADIUS; // beyond this, show drive time instead of walk time
+  var TRIP_RADIUS = 3000;
   var LEAFLET = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/";
   var OVERPASS = "https://overpass-api.de/api/interpreter";
 
   var ICON_PIN = '<svg class="pl-pin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>';
   var ICON_WALK = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="M9.8 8.9 7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3A7.3 7.3 0 0 0 19 13v-2a5 5 0 0 1-4.3-2.4l-1-1.6a2 2 0 0 0-1.7-1 2 2 0 0 0-.8.2L6 8.3V13h2V9.6z"/></svg>';
+  var ICON_CAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11a2 2 0 0 1 2 2v4a1 1 0 0 1-1 1h-1a2 2 0 0 1-4 0H9a2 2 0 0 1-4 0H4a1 1 0 0 1-1-1v-4a2 2 0 0 1 2-2zm2.1 0h9.8l-1.1-3.4a.9.9 0 0 0-.8-.6H9a.9.9 0 0 0-.8.6zM6.5 15a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4zm11 0a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>';
   var ICON_BACK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>';
 
-  function norm(s) { return (s || "").toLowerCase().replace(/[^a-z0-9]+/g, ""); }
+  function norm(s) { return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, ""); }
   function slug(s) { return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function dist(a, b) {
-    var R = 6371000, toR = Math.PI / 180;
-    var dLat = (b[0] - a[0]) * toR, dLon = (b[1] - a[1]) * toR;
-    var x = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(a[0] * toR) * Math.cos(b[0] * toR) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    var R = 6371000, r = Math.PI / 180, dLat = (b[0] - a[0]) * r, dLon = (b[1] - a[1]) * r;
+    var x = Math.pow(Math.sin(dLat / 2), 2) + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.pow(Math.sin(dLon / 2), 2);
     return 2 * R * Math.asin(Math.sqrt(x));
   }
-  // straight-line distance x 1.3 for real streets, at ~80 m per minute
+  function nearestDist(A, B) { var m = Infinity; A.forEach(function (a) { B.forEach(function (b) { m = Math.min(m, dist(a, b)); }); }); return m; }
+  // walking: straight line x1.3 at 80 m/min. driving: x1.4 at ~35 km/h plus a few minutes to park.
   function walkMins(m) { return Math.max(1, Math.round((m * 1.3) / 80)); }
+  function driveMins(m) { return Math.max(5, Math.round((m * 1.4) / 580 + 3)); }
+  function round5(n) { return n < 10 ? n : Math.round(n / 5) * 5; }
+  function travel(m) {
+    return m <= WALK_LIMIT
+      ? { icon: ICON_WALK, text: "About " + walkMins(m) + " min walk" }
+      : { icon: ICON_CAR, text: "About " + round5(driveMins(m)) + " min by car" };
+  }
+  function reachText(r) {
+    return r <= WALK_LIMIT ? "within about a " + walkMins(r) + "-minute walk" : "within about a " + round5(driveMins(r)) + "-minute drive";
+  }
 
   var main = document.querySelector("main.main");
   if (!main) return;
 
   // ── 1. Index every card that has a location ──────────────
   var byNorm = {};
-  Object.keys(PLACES).forEach(function (k) { byNorm[norm(k)] = k; });
-  var entries = [];   // {id, title, section, card, data}
-  var byId = {};
+  Object.keys(PLACES).forEach(function (k) { byNorm[norm(k)] = k; (PLACES[k].aka || []).forEach(function (a) { byNorm[norm(a)] = k; }); });
+  var entries = [], byId = {};
+
+  function titleOf(card) {
+    var h3 = card.querySelector("h3");
+    if (h3) return { el: h3, text: h3.textContent.trim(), whole: true };
+    var p = card.querySelector("p");
+    if (!p || !p.firstChild || p.firstChild.nodeType !== 3) return null;
+    var t = p.firstChild.nodeValue;
+    var m = t.match(/^\s*([^(:]+?)\s*(?=\(|:)/);
+    return m ? { el: p, text: m[1], whole: false, raw: t } : null;
+  }
+
   main.querySelectorAll("section").forEach(function (sec) {
     var h2 = sec.querySelector(":scope > h2");
     var sectionName = h2 ? h2.textContent.trim() : "";
     sec.querySelectorAll("article.card").forEach(function (card) {
-      var h3 = card.querySelector("h3");
-      if (!h3) return;
-      var title = h3.textContent.trim();
-      var key = byNorm[norm(title)];
+      var t = titleOf(card);
+      if (!t) return;
+      var key = byNorm[norm(t.text)];
       if (!key) return;
-      var id = slug(title);
-      var e = { id: id, title: title, section: sectionName, card: card, data: PLACES[key] };
-      entries.push(e); byId[id] = e;
-      h3.innerHTML = '<button type="button" class="place-link" data-place="' + id + '" aria-label="' + esc(title) + ': see what else is nearby on a map"><span class="pl-text">' + esc(title) + "</span>" + ICON_PIN + "</button>";
+      var data = PLACES[key];
+      var id = slug(key);
+      var meta = card.querySelector(".meta");
+      var isRepeat = !!byId[id] || (meta && /^see above$/i.test(meta.textContent.trim()));
+      if (!byId[id]) {
+        var e = { id: id, title: t.text, section: sectionName, card: card, data: data };
+        entries.push(e); byId[id] = e;
+      }
+      var btn = '<button type="button" class="place-link" data-place="' + id + '" aria-label="' + esc(t.text) + ': see what else is nearby on a map"><span class="pl-text">' + esc(t.text) + "</span>" + ICON_PIN + "</button>";
+      if (t.whole) t.el.innerHTML = btn;
+      else {
+        var i = t.raw.indexOf(t.text);
+        var span = document.createElement("span");
+        span.innerHTML = btn;
+        t.el.firstChild.nodeValue = t.raw.slice(i + t.text.length);
+        t.el.insertBefore(span.firstChild, t.el.firstChild);
+        if (i > 0) t.el.insertBefore(document.createTextNode(t.raw.slice(0, i)), t.el.firstChild);
+      }
+      if (isRepeat) card.setAttribute("data-area-repeat", "");
     });
   });
   if (!entries.length) return;
 
-  // Hint under the intro
   var intro = main.querySelector(".intro");
-  if (intro) {
-    var hint = document.createElement("p");
-    hint.className = "area-hint";
-    hint.innerHTML = ICON_PIN.replace('class="pl-pin"', "") + "<span>Tap any place name to see everything else from this guide nearby, on a map.</span>";
-    intro.insertAdjacentElement("afterend", hint);
-  }
+  var hint = document.createElement("p");
+  hint.className = "area-hint";
+  hint.innerHTML = ICON_PIN.replace('class="pl-pin"', "") + "<span>Tap any place name to see everything else from this guide nearby, on a map.</span>";
+  if (intro) intro.insertAdjacentElement("afterend", hint);
+  else main.insertBefore(hint, main.firstChild);
 
-  // ── 2. Area view shell ───────────────────────────────────
+  // ── 2. Area view ─────────────────────────────────────────
   var view = document.createElement("section");
   view.id = "area-view";
   view.setAttribute("aria-live", "polite");
   main.insertBefore(view, main.firstChild);
 
-  var map = null, layers = null, leafletPromise = null, current = null, scrollBack = 0;
-  var osmCache = {};
+  var map = null, leafletPromise = null, current = null, scrollBack = 0, osmCache = {};
+  var secOrder = entries.map(function (x) { return x.section; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
 
   function loadLeaflet() {
     if (window.L) return Promise.resolve(window.L);
     if (leafletPromise) return leafletPromise;
     leafletPromise = new Promise(function (resolve, reject) {
-      var css = document.createElement("link");
-      css.rel = "stylesheet"; css.href = LEAFLET + "leaflet.css";
-      document.head.appendChild(css);
-      var js = document.createElement("script");
-      js.src = LEAFLET + "leaflet.js";
+      var css = document.createElement("link"); css.rel = "stylesheet"; css.href = LEAFLET + "leaflet.css"; document.head.appendChild(css);
+      var js = document.createElement("script"); js.src = LEAFLET + "leaflet.js";
       js.onload = function () { resolve(window.L); };
       js.onerror = function () { leafletPromise = null; reject(new Error("leaflet")); };
       document.head.appendChild(js);
@@ -337,10 +302,13 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
     return leafletPromise;
   }
 
-  function nearestDist(pointsA, pointsB) {
-    var best = Infinity;
-    pointsA.forEach(function (a) { pointsB.forEach(function (b) { var d = dist(a, b); if (d < best) best = d; }); });
-    return best;
+  function addChip(card, icon, label) {
+    var tag = document.createElement("div");
+    tag.className = "walk";
+    tag.innerHTML = icon + esc(label);
+    var anchor = card.querySelector("h3") || card.querySelector(".meta");
+    if (anchor) anchor.insertAdjacentElement("afterend", tag);
+    else card.insertBefore(tag, card.firstChild);
   }
 
   function open(id, opts) {
@@ -350,11 +318,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
     if (!main.classList.contains("is-area")) scrollBack = window.scrollY;
     current = e;
     var trip = !!e.data.trip;
-    var radius = e.data.r || WALK_RADIUS;
-    // multi-site places (Dishoom) center on their first location; day trips show every stop
+    var radius = e.data.r || RADIUS;
     var centre = trip ? e.data.p : [e.data.p[0]];
 
-    // nearby guide picks
     var near = [];
     if (!trip) {
       entries.forEach(function (o) {
@@ -364,71 +330,50 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
       });
       near.sort(function (a, b) { return a.d - b.d; });
     }
-
-    // group by guide section, in the guide's own section order
-    var order = [], groups = {};
-    near.forEach(function (n) {
-      if (!groups[n.e.section]) { groups[n.e.section] = []; order.push(n.e.section); }
-      groups[n.e.section].push(n);
-    });
-    var secOrder = entries.map(function (x) { return x.section; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
+    var groups = {}, order = [];
+    near.forEach(function (n) { if (!groups[n.e.section]) { groups[n.e.section] = []; order.push(n.e.section); } groups[n.e.section].push(n); });
     order.sort(function (a, b) { return secOrder.indexOf(a) - secOrder.indexOf(b); });
 
-    var name = e.title.replace(/ \(multiple locations\)$/, "");
+    var name = e.title.replace(/\s*\(multiple locations\)$/i, "");
+    var at = e.data.at ? " (" + esc(e.data.at) + ")" : "";
     var sub;
-    if (trip) sub = "This one's a day trip outside London, so the map shows the area around it. Kasey can arrange transport and a guide.";
-    else if (near.length) sub = near.length + " more of Kasey's picks " + (near.length === 1 ? "is" : "are") + " within about a " + walkMins(radius) + "-minute walk" + (e.data.at ? " (" + esc(e.data.at) + ")" : "") + ". Tap a pin to explore around it.";
-    else sub = "Nothing else from this guide is within walking distance" + (e.data.at ? " (" + esc(e.data.at) + ")" : "") + ", but the map shows other sights nearby.";
+    if (trip) sub = "This one's a day trip, so the map shows the area around it. Kasey can arrange transport and a guide.";
+    else if (near.length) sub = near.length + " more of Kasey's picks " + (near.length === 1 ? "is " : "are ") + reachText(radius) + at + ". Tap a pin to explore around it.";
+    else sub = "Nothing else from this guide is " + reachText(radius) + at + ", but the map shows other sights nearby.";
 
     var html = '<button type="button" class="area-back" data-area-back>' + ICON_BACK + "Back to the full guide</button>" +
       '<h2 tabindex="-1">Around ' + esc(name) + "</h2>" +
       '<p class="area-sub">' + sub + "</p>" +
       '<div class="area-map-wrap"><div id="area-map" role="region" aria-label="Map of the area around ' + esc(name) + '"></div></div>' +
-      '<div class="map-legend"><span><i class="lg-dot lg-you"></i>' + esc(name) + '</span>' +
+      '<div class="map-legend"><span><i class="lg-dot lg-you"></i>' + esc(name) + "</span>" +
       (near.length ? '<span><i class="lg-dot lg-guide"></i>Also in this guide</span>' : "") +
       '<span><i class="lg-dot lg-other"></i>Other sights nearby</span></div>' +
-      '<p class="osm-status"></p>' +
-      '<div class="cards" data-picked></div>';
-    order.forEach(function (s) {
-      html += '<h3 class="area-group">' + esc(s) + '<span class="count">' + groups[s].length + "</span></h3><div class=\"cards\" data-group=\"" + esc(s) + '"></div>';
+      '<p class="osm-status"></p><div class="cards" data-picked></div>';
+    order.forEach(function (s, i) {
+      html += '<h3 class="area-group">' + esc(s) + '<span class="count">' + groups[s].length + '</span></h3><div class="cards" data-group="' + i + '"></div>';
     });
     view.innerHTML = html;
 
-    // the picked card, then nearby cards (clones of the real ones)
     var picked = e.card.cloneNode(true);
     picked.classList.add("is-picked");
-    addWalk(picked, "You picked this" + (e.data.at ? " · " + e.data.at : ""));
+    addChip(picked, ICON_PIN.replace('class="pl-pin"', ""), "You picked this" + (e.data.at ? " · " + e.data.at : ""));
     view.querySelector("[data-picked]").appendChild(picked);
-    order.forEach(function (s) {
-      var box = view.querySelector('[data-group="' + cssEsc(s) + '"]');
+    order.forEach(function (s, i) {
+      var box = view.querySelector('[data-group="' + i + '"]');
       groups[s].forEach(function (n) {
         var c = n.e.card.cloneNode(true);
-        var m = walkMins(n.d);
-        addWalk(c, "About " + m + " min walk");
+        var tr = travel(n.d);
+        addChip(c, tr.icon, tr.text);
         box.appendChild(c);
       });
     });
 
     main.classList.add("is-area");
-    if (!opts.fromHash) {
-      var h = "#near=" + id;
-      if (location.hash !== h) history.pushState({ near: id }, "", h);
-    }
+    if (!opts.fromHash) { var h = "#near=" + id; if (location.hash !== h) history.pushState({ near: id }, "", h); }
     window.scrollTo(0, main.getBoundingClientRect().top + window.scrollY - 12);
     view.querySelector("h2").focus({ preventScroll: true });
-
     drawMap(e, near, radius, trip, centre);
   }
-
-  function addWalk(card, label) {
-    var h3 = card.querySelector("h3");
-    var tag = document.createElement("div");
-    tag.className = "walk";
-    tag.innerHTML = ICON_WALK + esc(label);
-    h3.insertAdjacentElement("afterend", tag);
-  }
-
-  function cssEsc(s) { return (window.CSS && CSS.escape) ? CSS.escape(s) : s.replace(/"/g, '\\"'); }
 
   function close(opts) {
     opts = opts || {};
@@ -439,49 +384,41 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
     if (map) { map.remove(); map = null; }
     view.innerHTML = "";
     if (!opts.fromHash && location.hash.indexOf("#near=") === 0) history.pushState({}, "", location.pathname + location.search);
-    // return to the card they came from
     var btn = id && main.querySelector('.place-link[data-place="' + id + '"]');
     if (btn) { btn.closest("article").scrollIntoView({ block: "center" }); btn.focus({ preventScroll: true }); }
     else window.scrollTo(0, scrollBack);
   }
 
   // ── 3. Map ───────────────────────────────────────────────
+  function pinIcon(L, cls) { return L.divIcon({ className: "", html: '<div class="dg-pin ' + cls + '"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }); }
+
   function drawMap(e, near, radius, trip, centre) {
     var status = view.querySelector(".osm-status");
     var holder = view.querySelector("#area-map");
     loadLeaflet().then(function (L) {
       if (current !== e) return;
       if (map) { map.remove(); map = null; }
-      map = L.map(holder, { scrollWheelZoom: false, zoomControl: true });
+      map = L.map(holder, { scrollWheelZoom: false });
       map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
-      layers = L.layerGroup().addTo(map);
-      var otherLayer = L.layerGroup().addTo(map);
-
-      var bounds = [];
+      var pins = L.layerGroup().addTo(map), others = L.layerGroup().addTo(map), bounds = [];
       centre.forEach(function (pt) {
-        L.marker(pt, { icon: L.divIcon({ className: "", html: '<div class="dg-pin you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1000, keyboard: true, title: e.title })
-          .bindPopup("<strong>" + esc(e.title) + '</strong><span class="pp-sec">' + esc(e.section) + "</span>")
-          .addTo(layers);
+        L.marker(pt, { icon: pinIcon(L, "you"), zIndexOffset: 1000, title: e.title })
+          .bindPopup("<strong>" + esc(e.title) + '</strong><span class="pp-sec">' + esc(e.section) + "</span>").addTo(pins);
         bounds.push(pt);
       });
       near.forEach(function (n) {
-        // show the location of a multi-site place that's closest to here
         var best = n.e.data.p.reduce(function (acc, pt) { var d = nearestDist(centre, [pt]); return d < acc.d ? { pt: pt, d: d } : acc; }, { pt: n.e.data.p[0], d: Infinity }).pt;
-        L.marker(best, { icon: L.divIcon({ className: "", html: '<div class="dg-pin guide"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), keyboard: true, title: n.e.title })
-          .bindPopup("<strong>" + esc(n.e.title) + '</strong><span class="pp-sec">' + esc(n.e.section) + " · about " + walkMins(n.d) + ' min walk</span><br><button type="button" data-goto="' + n.e.id + '">Explore around here</button>')
-          .addTo(layers);
+        L.marker(best, { icon: pinIcon(L, "guide"), title: n.e.title })
+          .bindPopup("<strong>" + esc(n.e.title) + '</strong><span class="pp-sec">' + esc(n.e.section) + " · " + travel(n.d).text.toLowerCase() + '</span><br><button type="button" data-goto="' + n.e.id + '">Explore around here</button>')
+          .addTo(pins);
         bounds.push(best);
       });
-
-      if (trip && centre.length > 1) map.fitBounds(bounds, { padding: [40, 40] });
-      else if (bounds.length > 1) map.fitBounds(bounds, { padding: [36, 36], maxZoom: 16 });
-      else map.setView(centre[0], trip ? 13 : 16);
-
-      loadOtherSights(e, trip ? TRIP_RADIUS : Math.min(radius, 1600), otherLayer, status, L, centre);
+      if (bounds.length > 1) map.fitBounds(bounds, { padding: [36, 36], maxZoom: 16 });
+      else map.setView(centre[0], trip ? 13 : (RADIUS > WALK_LIMIT ? 14 : 16));
+      loadOtherSights(e, trip ? TRIP_RADIUS : Math.min(radius, 3000), others, status, L, centre);
     }).catch(function () {
       holder.outerHTML = '<div class="area-map-fallback">The map couldn\'t load. Everything nearby from this guide is listed below.</div>';
     });
@@ -492,12 +429,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
     var guidePts = [];
     entries.forEach(function (x) { x.data.p.forEach(function (p) { guidePts.push(p); }); });
     var guideNames = entries.map(function (x) { return norm(x.title.split(",")[0]); });
-
     function render(items) {
       if (current !== e) return;
       var shown = 0;
       items.forEach(function (it) {
-        if (guidePts.some(function (p) { return dist(p, it.pt) < 90; })) return;
+        if (guidePts.some(function (p) { return dist(p, it.pt) < 60; })) return;
         var n = norm(it.name);
         if (guideNames.some(function (g) { return g.length > 4 && (n.indexOf(g) > -1 || g.indexOf(n) > -1); })) return;
         L.circleMarker(it.pt, { radius: 5, color: "#6f8284", weight: 2, fillColor: "#fff", fillOpacity: 1 })
@@ -508,18 +444,18 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
       });
       status.textContent = shown ? shown + " other sights nearby, from OpenStreetMap." : "";
     }
-
     if (osmCache[key]) { render(osmCache[key]); return; }
     status.textContent = "Loading other sights nearby…";
-    var around = centre.map(function (p) { return "(around:" + r + "," + p[0] + "," + p[1] + ")"; });
     var q = "[out:json][timeout:20];(";
-    around.forEach(function (a) {
+    centre.forEach(function (p) {
+      var a = "(around:" + r + "," + p[0] + "," + p[1] + ")";
       q += 'nwr["tourism"~"^(attraction|museum|gallery|viewpoint|zoo|aquarium|theme_park)$"]["name"]' + a + ";";
       q += 'nwr["historic"~"^(castle|palace|monument|ruins|archaeological_site|city_gate)$"]["name"]' + a + ";";
+      q += 'nwr["natural"="beach"]["name"]' + a + ";";
     });
     q += ");out center 150;";
     fetch(OVERPASS, { method: "POST", body: "data=" + encodeURIComponent(q), headers: { "Content-Type": "application/x-www-form-urlencoded" } })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); })
       .then(function (json) {
         var seen = {}, items = [];
         (json.elements || []).forEach(function (el) {
@@ -528,16 +464,13 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
           var lon = el.lon != null ? el.lon : el.center && el.center.lon;
           if (lat == null || !t.name || seen[t.name]) return;
           seen[t.name] = 1;
-          var kind = (t.tourism || t.historic || "sight").replace(/_/g, " ");
-          kind = kind.charAt(0).toUpperCase() + kind.slice(1);
-          items.push({ name: t.name, pt: [lat, lon], kind: kind });
+          var kind = (t.tourism || t.historic || t.natural || "sight").replace(/_/g, " ");
+          items.push({ name: t.name, pt: [lat, lon], kind: kind.charAt(0).toUpperCase() + kind.slice(1) });
         });
         osmCache[key] = items;
         render(items);
       })
-      .catch(function () {
-        if (current === e) status.textContent = "Other sights couldn't load right now. Kasey's picks are all shown.";
-      });
+      .catch(function () { if (current === e) status.textContent = "Other sights couldn't load right now. Kasey's picks are all shown."; });
   }
 
   // ── 4. Events ────────────────────────────────────────────
@@ -552,12 +485,12 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
   });
   function fromHash() {
     var m = location.hash.match(/^#near=([a-z0-9-]+)/);
-    if (m && byId[m[1]]) open(m[1], { fromHash: true });
-    else close({ fromHash: true });
+    if (m && byId[m[1]]) open(m[1], { fromHash: true }); else close({ fromHash: true });
   }
   window.addEventListener("popstate", fromHash);
   if (location.hash.indexOf("#near=") === 0) fromHash();
 })();
 </script>
+<!-- area-explorer:end -->
 </body>
 </html>

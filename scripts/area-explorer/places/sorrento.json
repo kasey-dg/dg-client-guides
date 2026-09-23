@@ -1,0 +1,81 @@
+{
+ "radius": 1250,
+ "walkLimit": 1250,
+ "places": {
+  "Il Buco": {
+   "p": [
+    [
+     40.6264,
+     14.3765
+    ]
+   ]
+  },
+  "Terrazza Bosquet at Grand Hotel Excelsior Vittoria": {
+   "p": [
+    [
+     40.6268,
+     14.3778
+    ]
+   ]
+  },
+  "Lorelei": {
+   "p": [
+    [
+     40.628,
+     14.37
+    ]
+   ]
+  },
+  "Don Geppi": {
+   "p": [
+    [
+     40.6317,
+     14.393
+    ]
+   ],
+   "at": "Sant'Agnello"
+  },
+  "O'Parrucchiano La Favorita": {
+   "p": [
+    [
+     40.6266,
+     14.3749
+    ]
+   ]
+  },
+  "La Cantinaccia Del Popolo": {
+   "p": [
+    [
+     40.6262,
+     14.38
+    ]
+   ]
+  },
+  "Trattoria Da Emilia": {
+   "p": [
+    [
+     40.6293,
+     14.3698
+    ]
+   ],
+   "at": "Marina Grande"
+  },
+  "Chantecler's Trattoria": {
+   "p": [
+    [
+     40.6263,
+     14.376
+    ]
+   ]
+  },
+  "O'Puledrone": {
+   "p": [
+    [
+     40.6296,
+     14.3693
+    ]
+   ],
+   "at": "Marina Grande"
+  }
+ }
+}

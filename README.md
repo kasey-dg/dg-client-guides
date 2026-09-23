@@ -116,3 +116,13 @@ Edit `scripts/build.mjs` and add an entry to the `guides` array:
 ```
 
 Then run `npm run build` locally to verify before pushing.
+
+## Area explorer (tap a place, see what's nearby on a map)
+
+City and dining guides let clients tap a place name to see the other picks nearby on a map. The shared code and each guide's pin locations live in `scripts/area-explorer/` (`area.js`, `area.css`, `places/<guide>.json`). After editing any of those, re-inline them into the guides with:
+
+```
+node scripts/add-area-explorer.mjs
+```
+
+To add the feature to a new guide, create `places/<guide>.json` and add the guide to the list at the top of `scripts/add-area-explorer.mjs`.
