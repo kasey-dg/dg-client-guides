@@ -75,6 +75,26 @@ const guides = [
     ],
   },
   {
+    source: "guides/London City Guide",
+    path: "london-city-guide",
+    pages: [
+      {
+        file: "London_City_Guide_DG.html",
+        title: "London City Guide (Dazzling Getaways)",
+      },
+    ],
+  },
+  {
+    source: "guides/Sorrento Dining Guide",
+    path: "sorrento-dining-guide",
+    pages: [
+      {
+        file: "Sorrento_Dining_Guide_DG.html",
+        title: "Sorrento Dining Guide (Dazzling Getaways)",
+      },
+    ],
+  },
+  {
     source: "dowdy-travel",
     path: "dowdy-travel",
     pages: [
@@ -207,7 +227,7 @@ function build() {
 
   writeFileSync(
     join(dist, "index.html"),
-    renderIndexPage("Dazzling Getaways — Client Cruise Guides", siteLinks, {
+    renderIndexPage("Dazzling Getaways — Client Travel Guides", siteLinks, {
       showUrls: true,
     })
   );
