@@ -112,7 +112,7 @@ async function google(key, q) {
 // Counts Google lookups per UTC day and month. If the counter can't be read, Google is skipped (never risk a bill).
 async function googleAllowance() {
   try {
-    const store = getStore("review-usage");
+    const store = getStore({ name: "review-usage", consistency: "strong" }); // strong so the free-tier count is exact
     const now = new Date().toISOString();
     const dayKey = "google-" + now.slice(0, 10), monthKey = "google-" + now.slice(0, 7);
     const [day, month] = await Promise.all([store.get(dayKey), store.get(monthKey)]);
