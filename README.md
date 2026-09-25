@@ -126,3 +126,11 @@ node scripts/add-area-explorer.mjs
 ```
 
 To add the feature to a new guide, create `places/<guide>.json` and add the guide to the list at the top of `scripts/add-area-explorer.mjs`.
+
+### Ratings & reviews
+
+Each located card gets a "Ratings & reviews" button that opens a drawer with:
+- **Recognized by** and **From Kasey's clients**: add `accolades` (`label`, `year`, `source`, `url`) and `quotes` (`text`, `who`, `when`) to a place in `places/<guide>.json`.
+- **Tripadvisor and Google Maps** ratings and up to 5 recent reviews each, loaded live by `netlify/functions/reviews.mjs`. Set `TRIPADVISOR_API_KEY` and/or `GOOGLE_PLACES_API_KEY` in Netlify, then redeploy. A source without a key is simply hidden.
+- If a place matches the wrong listing, pin it with `"ta": "<Tripadvisor location id>"` or `"gid": "<Google place id>"` in its places entry.
+- Tripadvisor responses are cached at Netlify's edge for 24 hours. Google responses are never cached (Google's terms).

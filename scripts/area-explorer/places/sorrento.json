@@ -8,6 +8,12 @@
      40.6264,
      14.3765
     ]
+   ],
+   "accolades": [
+    {
+     "label": "One Michelin star",
+     "source": "The Michelin Guide"
+    }
    ]
   },
   "Terrazza Bosquet at Grand Hotel Excelsior Vittoria": {
@@ -16,6 +22,12 @@
      40.6268,
      14.3778
     ]
+   ],
+   "accolades": [
+    {
+     "label": "One Michelin star",
+     "source": "The Michelin Guide"
+    }
    ]
   },
   "Lorelei": {
@@ -77,5 +89,6 @@
    ],
    "at": "Marina Grande"
   }
- }
+ },
+ "category": "restaurants"
 }

@@ -19,8 +19,8 @@ const GUIDES = {
   "guides/Greek Islands Dining Picks/Greek_Islands_Dining_Picks_DG.html": "greek-islands",
 };
 
-const css = readFileSync(join(src, "area.css"), "utf8");
-const js = readFileSync(join(src, "area.js"), "utf8");
+const css = readFileSync(join(src, "area.css"), "utf8") + readFileSync(join(src, "reviews.css"), "utf8");
+const js = readFileSync(join(src, "area.js"), "utf8") + "\n" + readFileSync(join(src, "reviews.js"), "utf8");
 
 for (const [file, key] of Object.entries(GUIDES)) {
   const path = join(root, file);

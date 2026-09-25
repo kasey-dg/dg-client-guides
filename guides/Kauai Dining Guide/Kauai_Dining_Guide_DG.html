@@ -110,6 +110,56 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
 @media (max-width:640px){#area-map{height:320px}#area-view > h2{font-size:1.5rem}}
 @media (prefers-reduced-motion:reduce){.place-link .pl-text{transition:none}}
 @media print{.place-link .pl-pin,.area-hint,.area-back,.area-map-wrap,.map-legend,.osm-status{display:none!important}.place-link .pl-text{background:none}}
+/* ── Ratings & reviews drawer ── */
+.rv-open{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:none;border:1.5px solid var(--turquoise);color:var(--teal-dark);border-radius:999px;padding:5px 12px 5px 9px;font:600 .74rem 'Montserrat',sans-serif;cursor:pointer}
+.rv-open svg{width:13px;height:13px;color:var(--coral)}
+.rv-open:hover{border-color:var(--teal);background:var(--teal-light)}
+.rv-drawer{border:0;padding:0;max-width:100%;margin:0 0 0 auto;height:100%;max-height:100%;width:min(460px,100%);background:var(--eggshell);color:var(--text-dark);box-shadow:-8px 0 40px rgba(10,92,101,.25);overflow-y:auto;font-family:'Montserrat',sans-serif}
+.rv-drawer::backdrop{background:rgba(10,92,101,.35)}
+.rv-head{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;background:var(--teal);color:#fff;padding:calc(18px + env(safe-area-inset-top,0px)) 20px 18px}
+.rv-kicker{font-size:.72rem;color:var(--turquoise);margin-bottom:2px}
+.rv-head h2{font-family:'Playfair Display',serif;font-size:1.45rem;line-height:1.2;color:var(--yellow)}
+.rv-close{flex:none;background:rgba(255,255,255,.12);border:0;color:#fff;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;cursor:pointer}
+.rv-close:hover{background:rgba(255,255,255,.25)}.rv-close svg{width:16px;height:16px}
+.rv-drawer .rv-block{padding:18px 20px 4px;margin:0}
+.rv-block h3{font-family:'Playfair Display',serif;color:var(--teal-dark);font-size:1.05rem;margin-bottom:10px}
+.rv-accolades{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rv-accolades li{background:var(--white);border-left:4px solid var(--yellow);border-radius:0 8px 8px 0;padding:9px 12px;font-size:.84rem;font-weight:600;line-height:1.4}
+.rv-accolades li span{font-weight:400;color:var(--text-muted)}
+.rv-accolades li small{display:block;font-weight:400;font-size:.72rem;color:var(--text-muted);margin-top:2px}
+.rv-accolades a{color:var(--teal-dark)}
+.rv-quote{background:var(--white);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)}
+.rv-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:.98rem;line-height:1.5;color:var(--text-dark)}
+.rv-quote footer{font-size:.74rem;color:var(--text-muted);margin-top:8px}
+.rv-summary{display:grid;gap:10px}
+.rv-src{background:var(--white);border-radius:var(--radius);padding:12px 14px;box-shadow:var(--shadow)}
+.rv-src-name{display:block;font-size:.72rem;font-weight:700;color:var(--text-muted);margin-bottom:4px}
+.rv-src-body{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:.8rem;color:var(--text-mid)}
+.rv-src.is-loading .rv-src-body,.rv-src.is-empty .rv-src-body{color:var(--text-muted);font-style:italic}
+.rv-score{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--teal-dark);line-height:1}
+.rv-rank{flex-basis:100%;font-size:.74rem;color:var(--text-muted)}
+.rv-src-link,.rv-review footer a{display:inline-flex;align-items:center;gap:4px;color:var(--teal);font-weight:600;font-size:.74rem}
+.rv-src-link{flex-basis:100%}
+.rv-src-link svg,.rv-review footer a svg{width:12px;height:12px}
+.rv-stars{position:relative;display:inline-block;width:80px;height:15px;background:linear-gradient(90deg,#d6dfe0 0,#d6dfe0 100%);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 16'%3E%3Cg%3E%3Cpath id='s' d='M8 .8l2 4.3 4.6.6-3.4 3.2.9 4.6L8 11.2l-4.1 2.3.9-4.6L1.4 5.7 6 5.1z'/%3E%3Cuse href='%23s' x='16'/%3E%3Cuse href='%23s' x='32'/%3E%3Cuse href='%23s' x='48'/%3E%3Cuse href='%23s' x='64'/%3E%3C/g%3E%3C/svg%3E") 0 0/80px 15px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 16'%3E%3Cg%3E%3Cpath id='s' d='M8 .8l2 4.3 4.6.6-3.4 3.2.9 4.6L8 11.2l-4.1 2.3.9-4.6L1.4 5.7 6 5.1z'/%3E%3Cuse href='%23s' x='16'/%3E%3Cuse href='%23s' x='32'/%3E%3Cuse href='%23s' x='48'/%3E%3Cuse href='%23s' x='64'/%3E%3C/g%3E%3C/svg%3E") 0 0/80px 15px no-repeat}
+.rv-stars-fill{position:absolute;inset:0 auto 0 0;background:#f4b400}
+.rv-tabs{display:flex;gap:6px;margin:16px 0 10px;border-bottom:2px solid var(--turquoise)}
+.rv-tabs button{background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:8px 10px;font:600 .8rem 'Montserrat',sans-serif;color:var(--text-muted);cursor:pointer}
+.rv-tabs button span{font-weight:400}
+.rv-tabs button[aria-selected="true"]{color:var(--teal-dark);border-bottom-color:var(--coral)}
+.rv-review{background:var(--white);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)}
+.rv-review-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.rv-date{font-size:.72rem;color:var(--text-muted)}
+.rv-review h4{font-size:.88rem;margin-bottom:4px;color:var(--text-dark)}
+.rv-text{font-size:.84rem;line-height:1.55;color:var(--text-mid);display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}
+.rv-text.is-open{display:block}
+.rv-more{background:none;border:0;padding:4px 0 0;color:var(--teal);font:600 .76rem 'Montserrat',sans-serif;cursor:pointer}
+.rv-review footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;margin-top:10px;font-size:.74rem;color:var(--text-muted)}
+.rv-author{font-weight:600;color:var(--text-mid)}.rv-author a{color:inherit}
+.rv-note{font-size:.72rem;color:var(--text-muted);line-height:1.5;padding:4px 2px 24px}
+.rv-open:focus-visible,.rv-close:focus-visible,.rv-tabs button:focus-visible,.rv-more:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+@media (max-width:640px){.rv-drawer{margin:auto 0 0;width:100%;height:88vh;max-height:88vh;border-radius:16px 16px 0 0}.rv-head{padding-top:18px}}
+@media print{.rv-open,.rv-drawer{display:none!important}}
 </style>
 </head>
 <body>
@@ -132,7 +182,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
 <section><div class="note-box"><h3>A Note for Your Clients</h3><p class="">Kauai moves at its own pace. Reserve fine dining; bring cash for gems/trucks. North Shore is ~1 hr (Hanalei Bay, Kee Beach Napali lookout, Hanalei Poke). Pair Waimea Canyon with dinner at Tidepools or The Beach House.</p></div></section>
 </main>
 <!-- area-explorer:start -->
-<script>window.DG_AREA = {"radius":9000,"walkLimit":900,"places":{"Tidepools, Grand Hyatt Kauai":{"p":[[21.8795,-159.446]]},"The Beach House Restaurant":{"p":[[21.8811,-159.493]]},"Red Salt, Koa Kea Hotel":{"p":[[21.8733,-159.459]],"aka":["Red Salt (breakfast)"]},"RumFire Poipu Beach":{"p":[[21.8745,-159.465]]},"Merriman's Fish House, Poipu":{"p":[[21.884,-159.4805]]},"Koloa Fish Market":{"p":[[21.904,-159.464]]},"Keoki's Paradise":{"p":[[21.8795,-159.462]]},"Brennecke's Beach Broiler":{"p":[[21.8743,-159.454]]},"Hamura Saimin":{"p":[[21.973,-159.366]]},"Eating House 1849":{"p":[[21.8843,-159.48]]},"Kiawe Roots":{"p":[[21.915,-159.503]]},"Hanalei Poke":{"p":[[22.204,-159.499]]},"Tahiti Nui":{"p":[[22.202,-159.499]]},"Kenji Burger":{"p":[[22.076,-159.318]]},"The Dolphin Restaurant":{"p":[[22.206,-159.497]]},"Break & Feast":{"p":[[21.8797,-159.4617]]},"Little Fish Coffee":{"p":[[21.9065,-159.469]]},"Holoholo Grill, Koloa Landing Resort":{"p":[[21.879,-159.47]]},"Kalaheo Cafe & Coffee":{"p":[[21.9253,-159.529]]},"The Musubi Truck":{"p":[[21.9005,-159.4645]]},"Taco Libre":{"p":[[21.9066,-159.4688]]},"Eden Coffee":{"p":[[21.9063,-159.47]]},"The Fresh Shave":{"p":[[21.9068,-159.4685]]},"Waikomo Shave Ice":{"p":[[21.883,-159.463]]},"Koloa Mill Ice Cream & Coffee":{"p":[[21.9064,-159.4693]]}}};</script>
+<script>window.DG_AREA = {"radius":9000,"walkLimit":900,"places":{"Tidepools, Grand Hyatt Kauai":{"p":[[21.8795,-159.446]]},"The Beach House Restaurant":{"p":[[21.8811,-159.493]]},"Red Salt, Koa Kea Hotel":{"p":[[21.8733,-159.459]],"aka":["Red Salt (breakfast)"]},"RumFire Poipu Beach":{"p":[[21.8745,-159.465]]},"Merriman's Fish House, Poipu":{"p":[[21.884,-159.4805]]},"Koloa Fish Market":{"p":[[21.904,-159.464]]},"Keoki's Paradise":{"p":[[21.8795,-159.462]]},"Brennecke's Beach Broiler":{"p":[[21.8743,-159.454]]},"Hamura Saimin":{"p":[[21.973,-159.366]]},"Eating House 1849":{"p":[[21.8843,-159.48]]},"Kiawe Roots":{"p":[[21.915,-159.503]]},"Hanalei Poke":{"p":[[22.204,-159.499]]},"Tahiti Nui":{"p":[[22.202,-159.499]]},"Kenji Burger":{"p":[[22.076,-159.318]]},"The Dolphin Restaurant":{"p":[[22.206,-159.497]]},"Break & Feast":{"p":[[21.8797,-159.4617]]},"Little Fish Coffee":{"p":[[21.9065,-159.469]]},"Holoholo Grill, Koloa Landing Resort":{"p":[[21.879,-159.47]]},"Kalaheo Cafe & Coffee":{"p":[[21.9253,-159.529]]},"The Musubi Truck":{"p":[[21.9005,-159.4645]]},"Taco Libre":{"p":[[21.9066,-159.4688]]},"Eden Coffee":{"p":[[21.9063,-159.47]]},"The Fresh Shave":{"p":[[21.9068,-159.4685]]},"Waikomo Shave Ice":{"p":[[21.883,-159.463]]},"Koloa Mill Ice Cream & Coffee":{"p":[[21.9064,-159.4693]]}},"category":"restaurants"};</script>
 <script>
 /* Area explorer: tap a place name, see everything nearby from the same guide on a map.
    Shared source lives in scripts/area-explorer/. Per-guide places live in places/*.json.
@@ -439,6 +489,189 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offs
   }
   window.addEventListener("popstate", fromHash);
   if (location.hash.indexOf("#near=") === 0) fromHash();
+})();
+
+/* Ratings & reviews: a "Ratings & reviews" button on each located card opens a drawer with
+   Kasey's accolades and client quotes (from places/*.json) plus live Tripadvisor and Google
+   ratings and recent reviews (via the Netlify "reviews" function). Sources that aren't set up
+   or can't find the place are simply left out. */
+(function () {
+  "use strict";
+  var CFG = window.DG_AREA || {};
+  var PLACES = CFG.places || {};
+  var API = "https://dg-guides.netlify.app/.netlify/functions/reviews";
+  var main = document.querySelector("main.main");
+  if (!main) return;
+
+  function slug(s) { return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  var byId = {};
+  Object.keys(PLACES).forEach(function (k) { byId[slug(k)] = { key: k, d: PLACES[k] }; });
+
+  var ICON_STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg>';
+  var ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  var ICON_OUT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+  var SOURCES = {
+    tripadvisor: { label: "Tripadvisor", more: "Read on Tripadvisor", all: "See all reviews on Tripadvisor" },
+    google: { label: "Google Maps", more: "Read on Google Maps", all: "See all reviews on Google Maps" }
+  };
+
+  var live = [];      // sources the site has keys for
+  var cache = {};     // id:source -> promise
+
+  function hasStatic(d) { return (d.accolades && d.accolades.length) || (d.quotes && d.quotes.length); }
+
+  function addButtons() {
+    main.querySelectorAll("article.card").forEach(function (card) {
+      if (card.querySelector("[data-reviews]")) return;
+      var link = card.querySelector(".place-link[data-place]");
+      if (!link || card.hasAttribute("data-area-repeat")) return;
+      var id = link.getAttribute("data-place"), e = byId[id];
+      if (!e || e.d.trip) return;
+      if (!live.length && !hasStatic(e.d)) return;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "rv-open";
+      b.setAttribute("data-reviews", id);
+      b.innerHTML = ICON_STAR + "<span>Ratings &amp; reviews</span>";
+      card.appendChild(b);
+    });
+  }
+
+  // ── Drawer ───────────────────────────────────────────────
+  var dlg = document.createElement("dialog");
+  dlg.className = "rv-drawer";
+  dlg.setAttribute("aria-labelledby", "rv-title");
+  document.body.appendChild(dlg);
+  dlg.addEventListener("click", function (ev) { if (ev.target === dlg) dlg.close(); });
+
+  function stars(n) {
+    if (n == null) return "";
+    var pct = Math.max(0, Math.min(100, (n / 5) * 100));
+    return '<span class="rv-stars" role="img" aria-label="' + n + ' out of 5"><span class="rv-stars-fill" style="width:' + pct + '%"></span></span>';
+  }
+  function fmtCount(n) { return n == null ? "" : Number(n).toLocaleString("en-US"); }
+  function fmtDate(s) {
+    if (!s) return "";
+    var d = new Date(s);
+    return isNaN(d) ? "" : d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+  }
+
+  function load(id, src) {
+    var k = id + ":" + src;
+    if (cache[k]) return cache[k];
+    var e = byId[id], pt = e.d.p[0];
+    var q = new URLSearchParams({ source: src, name: e.key, lat: pt[0], lng: pt[1] });
+    if (CFG.category && src === "tripadvisor") q.set("category", CFG.category);
+    var over = src === "tripadvisor" ? e.d.ta : e.d.gid;
+    if (over) q.set("id", over);
+    cache[k] = fetch(API + "?" + q).then(function (r) { return r.json(); }).catch(function () { return { error: "unavailable" }; });
+    cache[k].then(function (d) { if (d.error) delete cache[k]; });
+    return cache[k];
+  }
+
+  function open(id) {
+    var e = byId[id];
+    if (!e) return;
+    var d = e.d;
+    var html = '<div class="rv-head"><div><p class="rv-kicker">Ratings &amp; reviews</p><h2 id="rv-title">' + esc(e.key) + '</h2></div>' +
+      '<button type="button" class="rv-close" aria-label="Close reviews">' + ICON_CLOSE + "</button></div>";
+    if (d.accolades && d.accolades.length) {
+      html += '<section class="rv-block"><h3>Recognized by</h3><ul class="rv-accolades">' + d.accolades.map(function (a) {
+        var label = esc(a.label) + (a.year ? " <span>" + esc(a.year) + "</span>" : "");
+        return "<li>" + (a.url ? '<a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + label + "</a>" : label) + (a.source ? '<small>' + esc(a.source) + "</small>" : "") + "</li>";
+      }).join("") + "</ul></section>";
+    }
+    if (d.quotes && d.quotes.length) {
+      html += '<section class="rv-block"><h3>From Kasey\'s clients</h3>' + d.quotes.map(function (q) {
+        return '<blockquote class="rv-quote"><p>' + esc(q.text) + "</p><footer>" + esc(q.who || "Dazzling Getaways client") + (q.when ? ", " + esc(q.when) : "") + "</footer></blockquote>";
+      }).join("") + "</section>";
+    }
+    if (live.length) {
+      html += '<section class="rv-block"><h3>What travelers say</h3><div class="rv-summary">' +
+        live.map(function (s) { return '<div class="rv-src is-loading" data-src="' + s + '"><span class="rv-src-name">' + SOURCES[s].label + '</span><span class="rv-src-body">Loading…</span></div>'; }).join("") +
+        '</div><div class="rv-tabs" role="tablist" hidden></div><div class="rv-list"></div></section>';
+    }
+    dlg.innerHTML = html;
+    dlg.querySelector(".rv-close").addEventListener("click", function () { dlg.close(); });
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+    dlg.scrollTop = 0;
+
+    var results = {};
+    live.forEach(function (s) {
+      load(id, s).then(function (r) {
+        if (!dlg.open || dlg.querySelector("#rv-title").textContent !== e.key) return;
+        results[s] = r;
+        renderSummary(s, r);
+        renderTabs(results);
+      });
+    });
+  }
+
+  function renderSummary(s, r) {
+    var box = dlg.querySelector('.rv-src[data-src="' + s + '"]');
+    if (!box) return;
+    box.classList.remove("is-loading");
+    var body = box.querySelector(".rv-src-body");
+    if (!r || r.error || r.configured === false || !r.found || r.rating == null) {
+      body.textContent = r && r.error ? "Couldn't load right now" : "No listing found";
+      box.classList.add("is-empty");
+      return;
+    }
+    var visual = s === "tripadvisor" && r.ratingImage ? '<img src="' + esc(r.ratingImage) + '" alt="' + r.rating + ' of 5 bubbles" height="16">' : stars(r.rating);
+    body.innerHTML = '<span class="rv-score">' + Number(r.rating).toFixed(1) + "</span>" + visual +
+      '<span class="rv-count">' + fmtCount(r.count) + " reviews</span>" +
+      (r.ranking ? '<span class="rv-rank">' + esc(r.ranking) + "</span>" : "") +
+      (r.url ? '<a class="rv-src-link" href="' + esc(r.url) + '" target="_blank" rel="noopener">' + SOURCES[s].all + ICON_OUT + "</a>" : "");
+  }
+
+  function renderTabs(results) {
+    var tabs = dlg.querySelector(".rv-tabs"), list = dlg.querySelector(".rv-list");
+    if (!tabs) return;
+    var avail = live.filter(function (s) { var r = results[s]; return r && r.found && r.reviews && r.reviews.length; });
+    if (!avail.length) return;
+    var active = tabs.getAttribute("data-active");
+    if (!active || avail.indexOf(active) < 0) active = avail[0];
+    tabs.hidden = false;
+    tabs.innerHTML = avail.map(function (s) {
+      return '<button type="button" role="tab" data-tab="' + s + '" aria-selected="' + (s === active) + '">' + SOURCES[s].label + " <span>" + results[s].reviews.length + "</span></button>";
+    }).join("");
+    tabs.setAttribute("data-active", active);
+    var r = results[active];
+    list.innerHTML = r.reviews.map(function (v) {
+      var author = v.authorUrl ? '<a href="' + esc(v.authorUrl) + '" target="_blank" rel="noopener">' + esc(v.author) + "</a>" : esc(v.author);
+      var when = v.when || fmtDate(v.date);
+      var visual = active === "tripadvisor" && v.ratingImage ? '<img src="' + esc(v.ratingImage) + '" alt="' + v.rating + ' of 5 bubbles" height="14">' : stars(v.rating);
+      return '<article class="rv-review">' +
+        '<div class="rv-review-top">' + visual + (when ? '<span class="rv-date">' + esc(when) + "</span>" : "") + "</div>" +
+        (v.title ? "<h4>" + esc(v.title) + "</h4>" : "") +
+        '<p class="rv-text">' + esc(v.text) + "</p>" +
+        '<button type="button" class="rv-more" hidden>Show more</button>' +
+        '<footer><span class="rv-author">' + author + "</span>" +
+        (v.url ? '<a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + SOURCES[active].more + ICON_OUT + "</a>" : "") + "</footer></article>";
+    }).join("") + '<p class="rv-note">Showing the ' + r.reviews.length + " most relevant reviews from " + SOURCES[active].label + ". Reviews are written by travelers, not Dazzling Getaways.</p>";
+    list.querySelectorAll(".rv-review").forEach(function (a) {
+      var t = a.querySelector(".rv-text"), m = a.querySelector(".rv-more");
+      if (t.scrollHeight > t.clientHeight + 4) m.hidden = false;
+    });
+    tabs.querySelectorAll("[data-tab]").forEach(function (b) {
+      b.addEventListener("click", function () { tabs.setAttribute("data-active", b.getAttribute("data-tab")); renderTabs(results); });
+    });
+  }
+
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest("[data-reviews]");
+    if (b) { open(b.getAttribute("data-reviews")); return; }
+    var m = ev.target.closest(".rv-more");
+    if (m) { var t = m.previousElementSibling; t.classList.toggle("is-open"); m.textContent = t.classList.contains("is-open") ? "Show less" : "Show more"; }
+  });
+
+  // Find out which live sources are set up, then add the buttons.
+  addButtons();
+  fetch(API + "?check=1").then(function (r) { return r.json(); }).then(function (j) {
+    live = (j.sources || []).filter(function (s) { return SOURCES[s]; });
+    if (live.length) addButtons();
+  }).catch(function () {});
 })();
 </script>
 <!-- area-explorer:end -->

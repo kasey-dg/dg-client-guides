@@ -222,7 +222,14 @@
      -156.695
     ]
    ],
-   "at": "Hyatt Regency Kaanapali cart"
+   "at": "Hyatt Regency Kaanapali cart",
+   "accolades": [
+    {
+     "label": "Gold 'Aipono Award, Best Shave Ice",
+     "year": "2025",
+     "source": "Maui Nō Ka 'Oi Magazine"
+    }
+   ]
   },
   "Local Boys Shave Ice": {
    "p": [
@@ -240,5 +247,6 @@
     ]
    ]
   }
- }
+ },
+ "category": "restaurants"
 }

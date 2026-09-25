@@ -8,6 +8,17 @@
      21.2789,
      -157.8325
     ]
+   ],
+   "accolades": [
+    {
+     "label": "Forbes Travel Guide Five-Star",
+     "source": "Forbes Travel Guide"
+    },
+    {
+     "label": "AAA Five Diamond",
+     "year": "since 1990",
+     "source": "AAA"
+    }
    ]
   },
   "Azure, The Royal Hawaiian": {
@@ -35,6 +46,12 @@
      21.274,
      -157.823
     ]
+   ],
+   "accolades": [
+    {
+     "label": "Forbes Travel Guide Five-Star",
+     "source": "Forbes Travel Guide"
+    }
    ]
   },
   "House Without a Key, Halekulani": {
@@ -59,6 +76,13 @@
      21.333,
      -157.864
     ]
+   ],
+   "accolades": [
+    {
+     "label": "America's Classics Award",
+     "year": "2000",
+     "source": "James Beard Foundation"
+    }
    ]
   },
   "Side Street Inn": {
@@ -187,5 +211,6 @@
     ]
    ]
   }
- }
+ },
+ "category": "restaurants"
 }
