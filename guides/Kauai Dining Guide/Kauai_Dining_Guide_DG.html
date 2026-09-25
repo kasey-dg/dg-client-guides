@@ -172,6 +172,16 @@ a.rv-chip:hover{border-color:var(--teal);background:var(--teal-light)}
 .rv-chip img{display:block}
 a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 @media print{.rv-chip svg{display:none}.rv-chip{border-color:#ccc}}
+/* free "read reviews on" links */
+.rv-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin-top:10px;font-size:.74rem}
+.rv-links-label{display:inline-flex;align-items:center;gap:5px;color:var(--text-muted)}
+.rv-links-label svg{width:12px;height:12px;color:#f4b400}
+.rv-links a{display:inline-flex;align-items:center;gap:3px;color:var(--teal);font-weight:600;text-decoration:none;border-bottom:1px solid var(--turquoise)}
+.rv-links a:hover{border-bottom-color:var(--teal)}
+.rv-links a svg{width:11px;height:11px}
+.rv-links a:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.rv-src.is-empty .rv-src-link{font-style:normal}
+@media print{.rv-links{display:none}}
 </style>
 </head>
 <body>
@@ -194,7 +204,7 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 <section><div class="note-box"><h3>A Note for Your Clients</h3><p class="">Kauai moves at its own pace. Reserve fine dining; bring cash for gems/trucks. North Shore is ~1 hr (Hanalei Bay, Kee Beach Napali lookout, Hanalei Poke). Pair Waimea Canyon with dinner at Tidepools or The Beach House.</p></div></section>
 </main>
 <!-- area-explorer:start -->
-<script>window.DG_AREA = {"radius":9000,"walkLimit":900,"places":{"Tidepools, Grand Hyatt Kauai":{"p":[[21.8795,-159.446]]},"The Beach House Restaurant":{"p":[[21.8811,-159.493]]},"Red Salt, Koa Kea Hotel":{"p":[[21.8733,-159.459]],"aka":["Red Salt (breakfast)"]},"RumFire Poipu Beach":{"p":[[21.8745,-159.465]]},"Merriman's Fish House, Poipu":{"p":[[21.884,-159.4805]]},"Koloa Fish Market":{"p":[[21.904,-159.464]]},"Keoki's Paradise":{"p":[[21.8795,-159.462]]},"Brennecke's Beach Broiler":{"p":[[21.8743,-159.454]]},"Hamura Saimin":{"p":[[21.973,-159.366]]},"Eating House 1849":{"p":[[21.8843,-159.48]]},"Kiawe Roots":{"p":[[21.915,-159.503]]},"Hanalei Poke":{"p":[[22.204,-159.499]]},"Tahiti Nui":{"p":[[22.202,-159.499]]},"Kenji Burger":{"p":[[22.076,-159.318]]},"The Dolphin Restaurant":{"p":[[22.206,-159.497]]},"Break & Feast":{"p":[[21.8797,-159.4617]]},"Little Fish Coffee":{"p":[[21.9065,-159.469]]},"Holoholo Grill, Koloa Landing Resort":{"p":[[21.879,-159.47]]},"Kalaheo Cafe & Coffee":{"p":[[21.9253,-159.529]]},"The Musubi Truck":{"p":[[21.9005,-159.4645]]},"Taco Libre":{"p":[[21.9066,-159.4688]]},"Eden Coffee":{"p":[[21.9063,-159.47]]},"The Fresh Shave":{"p":[[21.9068,-159.4685]]},"Waikomo Shave Ice":{"p":[[21.883,-159.463]]},"Koloa Mill Ice Cream & Coffee":{"p":[[21.9064,-159.4693]]}},"category":"restaurants"};</script>
+<script>window.DG_AREA = {"radius":9000,"walkLimit":900,"places":{"Tidepools, Grand Hyatt Kauai":{"p":[[21.8795,-159.446]]},"The Beach House Restaurant":{"p":[[21.8811,-159.493]]},"Red Salt, Koa Kea Hotel":{"p":[[21.8733,-159.459]],"aka":["Red Salt (breakfast)"]},"RumFire Poipu Beach":{"p":[[21.8745,-159.465]]},"Merriman's Fish House, Poipu":{"p":[[21.884,-159.4805]]},"Koloa Fish Market":{"p":[[21.904,-159.464]]},"Keoki's Paradise":{"p":[[21.8795,-159.462]]},"Brennecke's Beach Broiler":{"p":[[21.8743,-159.454]]},"Hamura Saimin":{"p":[[21.973,-159.366]]},"Eating House 1849":{"p":[[21.8843,-159.48]]},"Kiawe Roots":{"p":[[21.915,-159.503]]},"Hanalei Poke":{"p":[[22.204,-159.499]]},"Tahiti Nui":{"p":[[22.202,-159.499]]},"Kenji Burger":{"p":[[22.076,-159.318]]},"The Dolphin Restaurant":{"p":[[22.206,-159.497]]},"Break & Feast":{"p":[[21.8797,-159.4617]]},"Little Fish Coffee":{"p":[[21.9065,-159.469]]},"Holoholo Grill, Koloa Landing Resort":{"p":[[21.879,-159.47]]},"Kalaheo Cafe & Coffee":{"p":[[21.9253,-159.529]]},"The Musubi Truck":{"p":[[21.9005,-159.4645]]},"Taco Libre":{"p":[[21.9066,-159.4688]]},"Eden Coffee":{"p":[[21.9063,-159.47]]},"The Fresh Shave":{"p":[[21.9068,-159.4685]]},"Waikomo Shave Ice":{"p":[[21.883,-159.463]]},"Koloa Mill Ice Cream & Coffee":{"p":[[21.9064,-159.4693]]}},"category":"restaurants","city":"Kauai, Hawaii"};</script>
 <script>
 /* Area explorer: tap a place name, see everything nearby from the same guide on a map.
    Shared source lives in scripts/area-explorer/. Per-guide places live in places/*.json.
@@ -528,6 +538,38 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     google: { label: "Google Maps", more: "Read on Google Maps", all: "See all reviews on Google Maps" }
   };
 
+  // Free links to each site's listing (no API, no cost).
+  function coreName(k) { return k.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim(); }
+  function linksFor(e) {
+    var q = coreName(e.key) + " " + (e.d.city || CFG.city || "");
+    var g = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q.trim());
+    if (e.d.gid) g += "&query_place_id=" + encodeURIComponent(e.d.gid);
+    return [
+      { s: "tripadvisor", label: "Tripadvisor", url: e.d.taUrl || "https://www.tripadvisor.com/Search?q=" + encodeURIComponent(q.trim()) },
+      { s: "google", label: "Google Maps", url: g }
+    ];
+  }
+  function linkRow(e) {
+    var row = document.createElement("div");
+    row.className = "rv-links";
+    row.innerHTML = '<span class="rv-links-label">' + ICON_STAR + "Read reviews on</span>" + linksFor(e).map(function (l) {
+      return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener" aria-label="Read reviews of ' + esc(coreName(e.key)) + " on " + l.label + ' (opens in a new tab)">' + l.label + ICON_OUT + "</a>";
+    }).join("");
+    return row;
+  }
+  function addLinkRows() {
+    main.querySelectorAll("article.card").forEach(function (card) {
+      if (card.querySelector(".rv-links")) return;
+      var link = card.querySelector(".place-link[data-place]");
+      if (!link || card.hasAttribute("data-area-repeat")) return;
+      var e = byId[link.getAttribute("data-place")];
+      if (!e) return;
+      var row = linkRow(e);
+      var tags = card.querySelector(".tags");
+      if (tags) tags.insertAdjacentElement("beforebegin", row); else card.appendChild(row);
+    });
+  }
+
   var live = [];      // sources the site has keys for
   var inline = [];    // sources shown as a star line on each card
   var cache = {};     // id:source -> promise
@@ -607,6 +649,7 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
         '</div><div class="rv-tabs" role="tablist" hidden></div><div class="rv-list"></div></section>';
     }
     dlg.innerHTML = html;
+    dlg.setAttribute("data-id", id);
     dlg.querySelector(".rv-close").addEventListener("click", function () { dlg.close(); });
     if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
     dlg.scrollTop = 0;
@@ -628,7 +671,10 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     box.classList.remove("is-loading");
     var body = box.querySelector(".rv-src-body");
     if (!r || r.error || r.configured === false || !r.found || r.rating == null) {
-      body.textContent = r && r.error ? "Couldn't load right now" : "No listing found";
+      var e = byId[dlg.getAttribute("data-id")];
+      var l = e && linksFor(e).filter(function (x) { return x.s === s; })[0];
+      body.innerHTML = (r && r.error ? "Ratings aren't available here right now." : "We couldn't match this place automatically.") +
+        (l ? ' <a class="rv-src-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">Read reviews on ' + SOURCES[s].label + ICON_OUT + "</a>" : "");
       box.classList.add("is-empty");
       return;
     }
@@ -750,7 +796,8 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     if (m) { var t = m.previousElementSibling; t.classList.toggle("is-open"); m.textContent = t.classList.contains("is-open") ? "Show less" : "Show more"; }
   });
 
-  // Find out which live sources are set up, then add the buttons.
+  // Free review links go on every card right away; then find out which live sources are set up.
+  addLinkRows();
   addButtons();
   fetch(API + "?check=1").then(function (r) { return r.json(); }).then(function (j) {
     live = (j.sources || []).filter(function (s) { return SOURCES[s]; });

@@ -172,6 +172,16 @@ a.rv-chip:hover{border-color:var(--teal);background:var(--teal-light)}
 .rv-chip img{display:block}
 a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 @media print{.rv-chip svg{display:none}.rv-chip{border-color:#ccc}}
+/* free "read reviews on" links */
+.rv-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin-top:10px;font-size:.74rem}
+.rv-links-label{display:inline-flex;align-items:center;gap:5px;color:var(--text-muted)}
+.rv-links-label svg{width:12px;height:12px;color:#f4b400}
+.rv-links a{display:inline-flex;align-items:center;gap:3px;color:var(--teal);font-weight:600;text-decoration:none;border-bottom:1px solid var(--turquoise)}
+.rv-links a:hover{border-bottom-color:var(--teal)}
+.rv-links a svg{width:11px;height:11px}
+.rv-links a:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.rv-src.is-empty .rv-src-link{font-style:normal}
+@media print{.rv-links{display:none}}
 </style>
 </head>
 <body>
@@ -193,7 +203,7 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 <section><h2>Great Restaurants</h2><div class="cards"><article class="card"><h3>La Fontaine de Mars (7th)</h3><p>Classic bistro near the Eiffel Tower; steak frites.</p><div class="tags"><span class="tag hot">Let Kasey know to book</span></div></article><article class="card"><h3>Bistrot Paul Bert (11th)</h3><p>Modern standard-bearer bistro; wine list.</p><div class="tags"><span class="tag hot">Let Kasey know to book</span></div></article><article class="card"><h3>Brasserie Martin (11th)</h3><p>Old-school, local crowd; steak au poivre, confit de canard.</p><div class="tags"><span class="tag">Hidden gem</span></div></article><article class="card"><h3>Les Deux Magots (Saint-Germain)</h3><p>Hemingway, Picasso, Sartre, de Beauvoir; coffee and people-watching.</p></article><article class="card"><h3>Au Pied de Cochon (Les Halles)</h3><p>24/7 since 1947; escargots.</p></article><article class="card"><h3>Le Comptoir du Relais (Saint-Germain)</h3><p>Michelin-mentioned bistro.</p><div class="tags"><span class="tag hot">Let Kasey know to book</span></div></article></div><div class="pro-tip"><strong>Good to know</strong>Paul Bert, Fontaine de Mars, and Comptoir du Relais book up weeks ahead.</div></section>
 </main>
 <!-- area-explorer:start -->
-<script>window.DG_AREA = {"radius":1250,"walkLimit":1250,"places":{"Eiffel Tower":{"p":[[48.8584,2.2945]]},"The Louvre":{"p":[[48.8606,2.3376]]},"Seine River Cruise":{"p":[[48.8601,2.2934]],"at":"most cruises board near the Eiffel Tower"},"Notre-Dame & Sainte-Chapelle":{"p":[[48.853,2.3499],[48.8554,2.345]]},"Montmartre":{"p":[[48.8867,2.3431]]},"The Paris Catacombs":{"p":[[48.8339,2.3324]]},"Laduree":{"p":[[48.871,2.3031]],"at":"Champs-Élysées"},"Pierre Herme":{"p":[[48.8513,2.3326]],"at":"Rue Bonaparte"},"Angelina":{"p":[[48.865,2.3285]],"at":"Rue de Rivoli"},"Carette at Trocadero":{"p":[[48.8637,2.2872]]},"Palais Royal Gardens":{"p":[[48.865,2.3375]]},"Musee d'Orsay":{"p":[[48.86,2.3266]]},"Canal Saint-Martin":{"p":[[48.871,2.3655]]},"Bourse de Commerce / Pinault Collection":{"p":[[48.8628,2.3428]]},"Ile Saint-Louis":{"p":[[48.8517,2.3567]]},"Le Marais":{"p":[[48.8572,2.3595]]},"Marche aux Puces de Saint-Ouen":{"p":[[48.9016,2.3435]]},"Le Bon Marche & La Grande Epicerie":{"p":[[48.8509,2.3245]]},"Marche d'Aligre":{"p":[[48.849,2.3786]]},"Galeries Lafayette Haussmann":{"p":[[48.8738,2.332]]},"Rue du Bac & Saint-Germain boutiques":{"p":[[48.8545,2.3265]]},"Versailles":{"p":[[48.8049,2.1204]],"trip":true},"Giverny, Monet's Garden":{"p":[[49.0754,1.5339]],"trip":true},"Champagne Region":{"p":[[49.2583,4.0317],[49.04,3.96]],"trip":true,"at":"Reims and Épernay"},"Loire Valley Chateaux":{"p":[[47.6161,1.517],[47.3249,1.0703]],"trip":true,"at":"Chambord and Chenonceau"},"La Fontaine de Mars (7th)":{"p":[[48.8575,2.3009]]},"Bistrot Paul Bert (11th)":{"p":[[48.8521,2.3833]]},"Brasserie Martin (11th)":{"p":[[48.8625,2.3745]]},"Les Deux Magots (Saint-Germain)":{"p":[[48.854,2.333]]},"Au Pied de Cochon (Les Halles)":{"p":[[48.8636,2.3447]]},"Le Comptoir du Relais (Saint-Germain)":{"p":[[48.8521,2.3389]]}}};</script>
+<script>window.DG_AREA = {"radius":1250,"walkLimit":1250,"places":{"Eiffel Tower":{"p":[[48.8584,2.2945]]},"The Louvre":{"p":[[48.8606,2.3376]]},"Seine River Cruise":{"p":[[48.8601,2.2934]],"at":"most cruises board near the Eiffel Tower"},"Notre-Dame & Sainte-Chapelle":{"p":[[48.853,2.3499],[48.8554,2.345]]},"Montmartre":{"p":[[48.8867,2.3431]]},"The Paris Catacombs":{"p":[[48.8339,2.3324]]},"Laduree":{"p":[[48.871,2.3031]],"at":"Champs-Élysées"},"Pierre Herme":{"p":[[48.8513,2.3326]],"at":"Rue Bonaparte"},"Angelina":{"p":[[48.865,2.3285]],"at":"Rue de Rivoli"},"Carette at Trocadero":{"p":[[48.8637,2.2872]]},"Palais Royal Gardens":{"p":[[48.865,2.3375]]},"Musee d'Orsay":{"p":[[48.86,2.3266]]},"Canal Saint-Martin":{"p":[[48.871,2.3655]]},"Bourse de Commerce / Pinault Collection":{"p":[[48.8628,2.3428]]},"Ile Saint-Louis":{"p":[[48.8517,2.3567]]},"Le Marais":{"p":[[48.8572,2.3595]]},"Marche aux Puces de Saint-Ouen":{"p":[[48.9016,2.3435]]},"Le Bon Marche & La Grande Epicerie":{"p":[[48.8509,2.3245]]},"Marche d'Aligre":{"p":[[48.849,2.3786]]},"Galeries Lafayette Haussmann":{"p":[[48.8738,2.332]]},"Rue du Bac & Saint-Germain boutiques":{"p":[[48.8545,2.3265]]},"Versailles":{"p":[[48.8049,2.1204]],"trip":true},"Giverny, Monet's Garden":{"p":[[49.0754,1.5339]],"trip":true},"Champagne Region":{"p":[[49.2583,4.0317],[49.04,3.96]],"trip":true,"at":"Reims and Épernay"},"Loire Valley Chateaux":{"p":[[47.6161,1.517],[47.3249,1.0703]],"trip":true,"at":"Chambord and Chenonceau"},"La Fontaine de Mars (7th)":{"p":[[48.8575,2.3009]]},"Bistrot Paul Bert (11th)":{"p":[[48.8521,2.3833]]},"Brasserie Martin (11th)":{"p":[[48.8625,2.3745]]},"Les Deux Magots (Saint-Germain)":{"p":[[48.854,2.333]]},"Au Pied de Cochon (Les Halles)":{"p":[[48.8636,2.3447]]},"Le Comptoir du Relais (Saint-Germain)":{"p":[[48.8521,2.3389]]}},"city":"Paris"};</script>
 <script>
 /* Area explorer: tap a place name, see everything nearby from the same guide on a map.
    Shared source lives in scripts/area-explorer/. Per-guide places live in places/*.json.
@@ -527,6 +537,38 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     google: { label: "Google Maps", more: "Read on Google Maps", all: "See all reviews on Google Maps" }
   };
 
+  // Free links to each site's listing (no API, no cost).
+  function coreName(k) { return k.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim(); }
+  function linksFor(e) {
+    var q = coreName(e.key) + " " + (e.d.city || CFG.city || "");
+    var g = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q.trim());
+    if (e.d.gid) g += "&query_place_id=" + encodeURIComponent(e.d.gid);
+    return [
+      { s: "tripadvisor", label: "Tripadvisor", url: e.d.taUrl || "https://www.tripadvisor.com/Search?q=" + encodeURIComponent(q.trim()) },
+      { s: "google", label: "Google Maps", url: g }
+    ];
+  }
+  function linkRow(e) {
+    var row = document.createElement("div");
+    row.className = "rv-links";
+    row.innerHTML = '<span class="rv-links-label">' + ICON_STAR + "Read reviews on</span>" + linksFor(e).map(function (l) {
+      return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener" aria-label="Read reviews of ' + esc(coreName(e.key)) + " on " + l.label + ' (opens in a new tab)">' + l.label + ICON_OUT + "</a>";
+    }).join("");
+    return row;
+  }
+  function addLinkRows() {
+    main.querySelectorAll("article.card").forEach(function (card) {
+      if (card.querySelector(".rv-links")) return;
+      var link = card.querySelector(".place-link[data-place]");
+      if (!link || card.hasAttribute("data-area-repeat")) return;
+      var e = byId[link.getAttribute("data-place")];
+      if (!e) return;
+      var row = linkRow(e);
+      var tags = card.querySelector(".tags");
+      if (tags) tags.insertAdjacentElement("beforebegin", row); else card.appendChild(row);
+    });
+  }
+
   var live = [];      // sources the site has keys for
   var inline = [];    // sources shown as a star line on each card
   var cache = {};     // id:source -> promise
@@ -606,6 +648,7 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
         '</div><div class="rv-tabs" role="tablist" hidden></div><div class="rv-list"></div></section>';
     }
     dlg.innerHTML = html;
+    dlg.setAttribute("data-id", id);
     dlg.querySelector(".rv-close").addEventListener("click", function () { dlg.close(); });
     if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
     dlg.scrollTop = 0;
@@ -627,7 +670,10 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     box.classList.remove("is-loading");
     var body = box.querySelector(".rv-src-body");
     if (!r || r.error || r.configured === false || !r.found || r.rating == null) {
-      body.textContent = r && r.error ? "Couldn't load right now" : "No listing found";
+      var e = byId[dlg.getAttribute("data-id")];
+      var l = e && linksFor(e).filter(function (x) { return x.s === s; })[0];
+      body.innerHTML = (r && r.error ? "Ratings aren't available here right now." : "We couldn't match this place automatically.") +
+        (l ? ' <a class="rv-src-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">Read reviews on ' + SOURCES[s].label + ICON_OUT + "</a>" : "");
       box.classList.add("is-empty");
       return;
     }
@@ -749,7 +795,8 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     if (m) { var t = m.previousElementSibling; t.classList.toggle("is-open"); m.textContent = t.classList.contains("is-open") ? "Show less" : "Show more"; }
   });
 
-  // Find out which live sources are set up, then add the buttons.
+  // Free review links go on every card right away; then find out which live sources are set up.
+  addLinkRows();
   addButtons();
   fetch(API + "?check=1").then(function (r) { return r.json(); }).then(function (j) {
     live = (j.sources || []).filter(function (s) { return SOURCES[s]; });

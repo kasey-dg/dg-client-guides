@@ -23,6 +23,38 @@
     google: { label: "Google Maps", more: "Read on Google Maps", all: "See all reviews on Google Maps" }
   };
 
+  // Free links to each site's listing (no API, no cost).
+  function coreName(k) { return k.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim(); }
+  function linksFor(e) {
+    var q = coreName(e.key) + " " + (e.d.city || CFG.city || "");
+    var g = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q.trim());
+    if (e.d.gid) g += "&query_place_id=" + encodeURIComponent(e.d.gid);
+    return [
+      { s: "tripadvisor", label: "Tripadvisor", url: e.d.taUrl || "https://www.tripadvisor.com/Search?q=" + encodeURIComponent(q.trim()) },
+      { s: "google", label: "Google Maps", url: g }
+    ];
+  }
+  function linkRow(e) {
+    var row = document.createElement("div");
+    row.className = "rv-links";
+    row.innerHTML = '<span class="rv-links-label">' + ICON_STAR + "Read reviews on</span>" + linksFor(e).map(function (l) {
+      return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener" aria-label="Read reviews of ' + esc(coreName(e.key)) + " on " + l.label + ' (opens in a new tab)">' + l.label + ICON_OUT + "</a>";
+    }).join("");
+    return row;
+  }
+  function addLinkRows() {
+    main.querySelectorAll("article.card").forEach(function (card) {
+      if (card.querySelector(".rv-links")) return;
+      var link = card.querySelector(".place-link[data-place]");
+      if (!link || card.hasAttribute("data-area-repeat")) return;
+      var e = byId[link.getAttribute("data-place")];
+      if (!e) return;
+      var row = linkRow(e);
+      var tags = card.querySelector(".tags");
+      if (tags) tags.insertAdjacentElement("beforebegin", row); else card.appendChild(row);
+    });
+  }
+
   var live = [];      // sources the site has keys for
   var inline = [];    // sources shown as a star line on each card
   var cache = {};     // id:source -> promise
@@ -102,6 +134,7 @@
         '</div><div class="rv-tabs" role="tablist" hidden></div><div class="rv-list"></div></section>';
     }
     dlg.innerHTML = html;
+    dlg.setAttribute("data-id", id);
     dlg.querySelector(".rv-close").addEventListener("click", function () { dlg.close(); });
     if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
     dlg.scrollTop = 0;
@@ -123,7 +156,10 @@
     box.classList.remove("is-loading");
     var body = box.querySelector(".rv-src-body");
     if (!r || r.error || r.configured === false || !r.found || r.rating == null) {
-      body.textContent = r && r.error ? "Couldn't load right now" : "No listing found";
+      var e = byId[dlg.getAttribute("data-id")];
+      var l = e && linksFor(e).filter(function (x) { return x.s === s; })[0];
+      body.innerHTML = (r && r.error ? "Ratings aren't available here right now." : "We couldn't match this place automatically.") +
+        (l ? ' <a class="rv-src-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">Read reviews on ' + SOURCES[s].label + ICON_OUT + "</a>" : "");
       box.classList.add("is-empty");
       return;
     }
@@ -245,7 +281,8 @@
     if (m) { var t = m.previousElementSibling; t.classList.toggle("is-open"); m.textContent = t.classList.contains("is-open") ? "Show less" : "Show more"; }
   });
 
-  // Find out which live sources are set up, then add the buttons.
+  // Free review links go on every card right away; then find out which live sources are set up.
+  addLinkRows();
   addButtons();
   fetch(API + "?check=1").then(function (r) { return r.json(); }).then(function (j) {
     live = (j.sources || []).filter(function (s) { return SOURCES[s]; });

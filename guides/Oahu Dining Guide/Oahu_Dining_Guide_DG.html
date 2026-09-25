@@ -172,6 +172,16 @@ a.rv-chip:hover{border-color:var(--teal);background:var(--teal-light)}
 .rv-chip img{display:block}
 a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 @media print{.rv-chip svg{display:none}.rv-chip{border-color:#ccc}}
+/* free "read reviews on" links */
+.rv-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin-top:10px;font-size:.74rem}
+.rv-links-label{display:inline-flex;align-items:center;gap:5px;color:var(--text-muted)}
+.rv-links-label svg{width:12px;height:12px;color:#f4b400}
+.rv-links a{display:inline-flex;align-items:center;gap:3px;color:var(--teal);font-weight:600;text-decoration:none;border-bottom:1px solid var(--turquoise)}
+.rv-links a:hover{border-bottom-color:var(--teal)}
+.rv-links a svg{width:11px;height:11px}
+.rv-links a:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.rv-src.is-empty .rv-src-link{font-style:normal}
+@media print{.rv-links{display:none}}
 </style>
 </head>
 <body>
@@ -194,7 +204,7 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 <section><div class="note-box"><h3>Getting Around, No Rental Car Needed</h3><p class="">Waikiki is very walkable (beach path from Hilton Hawaiian Village to the Natatorium). Plan one &quot;Kapahulu crawl&quot; afternoon by Uber (Ono Seafood, Rainbow Drive-In, Leonard&#x27;s, Waiola). Chinatown/Downtown is 10-15 min by Uber for The Pig and the Lady, Hank&#x27;s, and the markets. Reserve La Mer, Azure, Orchids, and Duke&#x27;s.</p></div></section>
 </main>
 <!-- area-explorer:start -->
-<script>window.DG_AREA = {"radius":6000,"walkLimit":1600,"places":{"La Mer, Halekulani Hotel":{"p":[[21.2789,-157.8325]],"accolades":[{"label":"Forbes Travel Guide Five-Star","source":"Forbes Travel Guide"},{"label":"AAA Five Diamond","year":"since 1990","source":"AAA"}]},"Azure, The Royal Hawaiian":{"p":[[21.2779,-157.829]]},"Orchids, Halekulani Hotel":{"p":[[21.2789,-157.8325]],"aka":["Orchids Sunday Brunch, Halekulani"]},"Mugen, ESPACIO The Jewel of Waikiki":{"p":[[21.274,-157.823]],"accolades":[{"label":"Forbes Travel Guide Five-Star","source":"Forbes Travel Guide"}]},"House Without a Key, Halekulani":{"p":[[21.2789,-157.8325]]},"Ono Seafood":{"p":[[21.281,-157.814]]},"Helena's Hawaiian Food":{"p":[[21.333,-157.864]],"accolades":[{"label":"America's Classics Award","year":"2000","source":"James Beard Foundation"}]},"Side Street Inn":{"p":[[21.294,-157.843],[21.2835,-157.8135]]},"Rainbow Drive-In":{"p":[[21.278,-157.813]]},"Marugame Udon":{"p":[[21.28,-157.8275]]},"Maguro Brothers":{"p":[[21.279,-157.8295]]},"Nico's Pier 38":{"p":[[21.316,-157.874]]},"Hank's Haute Dogs":{"p":[[21.2985,-157.86]]},"The Pig and the Lady":{"p":[[21.312,-157.863]]},"Duke's Waikiki":{"p":[[21.2767,-157.8267]],"aka":["Duke's Waikiki (breakfast)"]},"Eggs 'n Things":{"p":[[21.28,-157.831]]},"Island Vintage Coffee":{"p":[[21.2785,-157.829]]},"Liliha Bakery":{"p":[[21.323,-157.854]],"aka":["Liliha Bakery, coco puffs"]},"Leonard's Bakery":{"p":[[21.2848,-157.813]],"aka":["Leonard's Bakery, malasadas"]},"Musubi Cafe Iyasume":{"p":[[21.2795,-157.828]],"at":"one of several Waikiki locations"},"Waiola Shave Ice":{"p":[[21.29,-157.832]]}},"category":"restaurants"};</script>
+<script>window.DG_AREA = {"radius":6000,"walkLimit":1600,"places":{"La Mer, Halekulani Hotel":{"p":[[21.2789,-157.8325]],"accolades":[{"label":"Forbes Travel Guide Five-Star","source":"Forbes Travel Guide"},{"label":"AAA Five Diamond","year":"since 1990","source":"AAA"}]},"Azure, The Royal Hawaiian":{"p":[[21.2779,-157.829]]},"Orchids, Halekulani Hotel":{"p":[[21.2789,-157.8325]],"aka":["Orchids Sunday Brunch, Halekulani"]},"Mugen, ESPACIO The Jewel of Waikiki":{"p":[[21.274,-157.823]],"accolades":[{"label":"Forbes Travel Guide Five-Star","source":"Forbes Travel Guide"}]},"House Without a Key, Halekulani":{"p":[[21.2789,-157.8325]]},"Ono Seafood":{"p":[[21.281,-157.814]]},"Helena's Hawaiian Food":{"p":[[21.333,-157.864]],"accolades":[{"label":"America's Classics Award","year":"2000","source":"James Beard Foundation"}]},"Side Street Inn":{"p":[[21.294,-157.843],[21.2835,-157.8135]]},"Rainbow Drive-In":{"p":[[21.278,-157.813]]},"Marugame Udon":{"p":[[21.28,-157.8275]]},"Maguro Brothers":{"p":[[21.279,-157.8295]]},"Nico's Pier 38":{"p":[[21.316,-157.874]]},"Hank's Haute Dogs":{"p":[[21.2985,-157.86]]},"The Pig and the Lady":{"p":[[21.312,-157.863]]},"Duke's Waikiki":{"p":[[21.2767,-157.8267]],"aka":["Duke's Waikiki (breakfast)"]},"Eggs 'n Things":{"p":[[21.28,-157.831]]},"Island Vintage Coffee":{"p":[[21.2785,-157.829]]},"Liliha Bakery":{"p":[[21.323,-157.854]],"aka":["Liliha Bakery, coco puffs"]},"Leonard's Bakery":{"p":[[21.2848,-157.813]],"aka":["Leonard's Bakery, malasadas"]},"Musubi Cafe Iyasume":{"p":[[21.2795,-157.828]],"at":"one of several Waikiki locations"},"Waiola Shave Ice":{"p":[[21.29,-157.832]]}},"category":"restaurants","city":"Honolulu, Hawaii"};</script>
 <script>
 /* Area explorer: tap a place name, see everything nearby from the same guide on a map.
    Shared source lives in scripts/area-explorer/. Per-guide places live in places/*.json.
@@ -528,6 +538,38 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     google: { label: "Google Maps", more: "Read on Google Maps", all: "See all reviews on Google Maps" }
   };
 
+  // Free links to each site's listing (no API, no cost).
+  function coreName(k) { return k.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim(); }
+  function linksFor(e) {
+    var q = coreName(e.key) + " " + (e.d.city || CFG.city || "");
+    var g = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q.trim());
+    if (e.d.gid) g += "&query_place_id=" + encodeURIComponent(e.d.gid);
+    return [
+      { s: "tripadvisor", label: "Tripadvisor", url: e.d.taUrl || "https://www.tripadvisor.com/Search?q=" + encodeURIComponent(q.trim()) },
+      { s: "google", label: "Google Maps", url: g }
+    ];
+  }
+  function linkRow(e) {
+    var row = document.createElement("div");
+    row.className = "rv-links";
+    row.innerHTML = '<span class="rv-links-label">' + ICON_STAR + "Read reviews on</span>" + linksFor(e).map(function (l) {
+      return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener" aria-label="Read reviews of ' + esc(coreName(e.key)) + " on " + l.label + ' (opens in a new tab)">' + l.label + ICON_OUT + "</a>";
+    }).join("");
+    return row;
+  }
+  function addLinkRows() {
+    main.querySelectorAll("article.card").forEach(function (card) {
+      if (card.querySelector(".rv-links")) return;
+      var link = card.querySelector(".place-link[data-place]");
+      if (!link || card.hasAttribute("data-area-repeat")) return;
+      var e = byId[link.getAttribute("data-place")];
+      if (!e) return;
+      var row = linkRow(e);
+      var tags = card.querySelector(".tags");
+      if (tags) tags.insertAdjacentElement("beforebegin", row); else card.appendChild(row);
+    });
+  }
+
   var live = [];      // sources the site has keys for
   var inline = [];    // sources shown as a star line on each card
   var cache = {};     // id:source -> promise
@@ -607,6 +649,7 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
         '</div><div class="rv-tabs" role="tablist" hidden></div><div class="rv-list"></div></section>';
     }
     dlg.innerHTML = html;
+    dlg.setAttribute("data-id", id);
     dlg.querySelector(".rv-close").addEventListener("click", function () { dlg.close(); });
     if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
     dlg.scrollTop = 0;
@@ -628,7 +671,10 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     box.classList.remove("is-loading");
     var body = box.querySelector(".rv-src-body");
     if (!r || r.error || r.configured === false || !r.found || r.rating == null) {
-      body.textContent = r && r.error ? "Couldn't load right now" : "No listing found";
+      var e = byId[dlg.getAttribute("data-id")];
+      var l = e && linksFor(e).filter(function (x) { return x.s === s; })[0];
+      body.innerHTML = (r && r.error ? "Ratings aren't available here right now." : "We couldn't match this place automatically.") +
+        (l ? ' <a class="rv-src-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">Read reviews on ' + SOURCES[s].label + ICON_OUT + "</a>" : "");
       box.classList.add("is-empty");
       return;
     }
@@ -750,7 +796,8 @@ a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
     if (m) { var t = m.previousElementSibling; t.classList.toggle("is-open"); m.textContent = t.classList.contains("is-open") ? "Show less" : "Show more"; }
   });
 
-  // Find out which live sources are set up, then add the buttons.
+  // Free review links go on every card right away; then find out which live sources are set up.
+  addLinkRows();
   addButtons();
   fetch(API + "?check=1").then(function (r) { return r.json(); }).then(function (j) {
     live = (j.sources || []).filter(function (s) { return SOURCES[s]; });

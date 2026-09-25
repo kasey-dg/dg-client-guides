@@ -45,7 +45,8 @@
      14.393
     ]
    ],
-   "at": "Sant'Agnello"
+   "at": "Sant'Agnello",
+   "city": "Sant'Agnello, Italy"
   },
   "O'Parrucchiano La Favorita": {
    "p": [
@@ -90,5 +91,6 @@
    "at": "Marina Grande"
   }
  },
- "category": "restaurants"
+ "category": "restaurants",
+ "city": "Sorrento, Italy"
 }

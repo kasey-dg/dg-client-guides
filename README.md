@@ -127,11 +127,9 @@ node scripts/add-area-explorer.mjs
 
 To add the feature to a new guide, create `places/<guide>.json` and add the guide to the list at the top of `scripts/add-area-explorer.mjs`.
 
-### Ratings & reviews
+### Ratings & reviews (free setup)
 
-Each located card gets a "Ratings & reviews" button that opens a drawer with:
-- **Recognized by** and **From Kasey's clients**: add `accolades` (`label`, `year`, `source`, `url`) and `quotes` (`text`, `who`, `when`) to a place in `places/<guide>.json`.
-- **Tripadvisor and Google Maps** ratings and up to 5 recent reviews each, loaded live by `netlify/functions/reviews.mjs`. Set `TRIPADVISOR_API_KEY` and/or `GOOGLE_PLACES_API_KEY` in Netlify, then redeploy. A source without a key is simply hidden.
-- **Star line on each card:** rating, stars, source name and review count for each source, linking to that site's page for the place (all reviews). It loads as the card scrolls into view. To show only some sources on cards, set `INLINE_SOURCES` in Netlify (e.g. `tripadvisor`); the drawer still shows every source.
-- If a place matches the wrong listing, pin it with `"ta": "<Tripadvisor location id>"` or `"gid": "<Google place id>"` in its places entry.
-- Tripadvisor responses are cached at Netlify's edge for 24 hours. Google responses are never cached (Google's terms).
+- **Every located card** gets free "Read reviews on Tripadvisor / Google Maps" links (search links, no API or cost). Set `city` per guide (or per place) in `places/<guide>.json` to steer the search; add `gid` (Google place id) or `taUrl` (exact Tripadvisor page) to a place to link straight to its listing.
+- **"Ratings & reviews" drawer:** accolades (`accolades`: `label`, `year`, `source`, `url`) and client quotes (`quotes`: `text`, `who`, `when`) from the places file, plus live Google rating and up to 5 reviews when `GOOGLE_PLACES_API_KEY` is set in Netlify.
+- **Staying free:** Google gives 1,000 free lookups a month. `netlify/functions/reviews.mjs` counts lookups in Netlify Blobs and stops at 30 a day / 950 a month (override with `GOOGLE_DAILY_CAP` / `GOOGLE_MONTHLY_CAP`). Past the cap, or if the counter can't be read, the drawer shows the free links instead. Google results are never cached (Google's terms).
+- **Paid options, off by default:** `TRIPADVISOR_API_KEY` enables Tripadvisor in the drawer (Tripadvisor's Terra plan bills per place). `INLINE_SOURCES` (e.g. `google`) adds a star line to every card, which uses a lookup per card viewed.

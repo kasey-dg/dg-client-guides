@@ -5,8 +5,14 @@
 // Keys live in Netlify env vars (never in the guide pages):
 //   TRIPADVISOR_API_KEY   Tripadvisor Content API key (restrict it to the dg-guides.netlify.app domain)
 //   GOOGLE_PLACES_API_KEY Google Places API (New) key (restrict it to the Places API)
-//   INLINE_SOURCES        optional, e.g. "tripadvisor" to show only Tripadvisor stars on cards (default: every configured source)
+//   INLINE_SOURCES        optional: sources to show as a star line on every card (default: none, to stay free)
+//   GOOGLE_DAILY_CAP / GOOGLE_MONTHLY_CAP  optional: override the free-tier caps (defaults 30 / 950)
+import { getStore } from "@netlify/blobs";
+
 const SITE = "https://dg-guides.netlify.app";
+// Google gives 1,000 free rating/review lookups a month. These caps keep the site inside that, so it never bills.
+const GOOGLE_DAILY_CAP = +(process.env.GOOGLE_DAILY_CAP || 30);
+const GOOGLE_MONTHLY_CAP = +(process.env.GOOGLE_MONTHLY_CAP || 950);
 const TA = "https://api.content.tripadvisor.com/api/v1";
 
 const cors = { "Access-Control-Allow-Origin": "*", "Content-Type": "application/json; charset=utf-8" };
@@ -103,18 +109,36 @@ async function google(key, q) {
   };
 }
 
+// Counts Google lookups per UTC day and month. If the counter can't be read, Google is skipped (never risk a bill).
+async function googleAllowance() {
+  try {
+    const store = getStore("review-usage");
+    const now = new Date().toISOString();
+    const dayKey = "google-" + now.slice(0, 10), monthKey = "google-" + now.slice(0, 7);
+    const [day, month] = await Promise.all([store.get(dayKey), store.get(monthKey)]);
+    const d = +(day || 0), m = +(month || 0);
+    if (d >= GOOGLE_DAILY_CAP || m >= GOOGLE_MONTHLY_CAP) return false;
+    await Promise.all([store.set(dayKey, String(d + 1)), store.set(monthKey, String(m + 1))]);
+    return true;
+  } catch (err) {
+    console.error("usage counter", err.message);
+    return false;
+  }
+}
+
 export default async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: { ...cors, "Access-Control-Allow-Methods": "GET" } });
   const p = Object.fromEntries(new URL(req.url).searchParams);
   const keys = { tripadvisor: process.env.TRIPADVISOR_API_KEY, google: process.env.GOOGLE_PLACES_API_KEY };
   const configured = Object.keys(keys).filter((k) => keys[k]);
-  const inline = process.env.INLINE_SOURCES ? process.env.INLINE_SOURCES.split(",").map((x) => x.trim()).filter((x) => configured.includes(x)) : configured;
+  const inline = process.env.INLINE_SOURCES ? process.env.INLINE_SOURCES.split(",").map((x) => x.trim()).filter((x) => configured.includes(x)) : [];
   if (p.check) return reply({ sources: configured, inline }, { cache: "public, s-maxage=300" });
 
   const src = p.source;
   if (!keys[src]) return reply({ source: src, configured: false });
   if (!p.name || !p.lat || !p.lng) return reply({ error: "name, lat and lng are required" }, { status: 400 });
   try {
+    if (src === "google" && !(await googleAllowance())) return reply({ source: src, configured: true, error: "limit" });
     const data = src === "tripadvisor" ? await tripadvisor(keys[src], p) : await google(keys[src], p);
     // Tripadvisor results are cached at Netlify's edge for a day to stay inside the free tier.
     // Google's terms don't allow storing ratings or reviews, so Google is always fetched live.

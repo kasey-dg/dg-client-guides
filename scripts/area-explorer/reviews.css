@@ -60,3 +60,13 @@ a.rv-chip:hover{border-color:var(--teal);background:var(--teal-light)}
 .rv-chip img{display:block}
 a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 @media print{.rv-chip svg{display:none}.rv-chip{border-color:#ccc}}
+/* free "read reviews on" links */
+.rv-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin-top:10px;font-size:.74rem}
+.rv-links-label{display:inline-flex;align-items:center;gap:5px;color:var(--text-muted)}
+.rv-links-label svg{width:12px;height:12px;color:#f4b400}
+.rv-links a{display:inline-flex;align-items:center;gap:3px;color:var(--teal);font-weight:600;text-decoration:none;border-bottom:1px solid var(--turquoise)}
+.rv-links a:hover{border-bottom-color:var(--teal)}
+.rv-links a svg{width:11px;height:11px}
+.rv-links a:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.rv-src.is-empty .rv-src-link{font-style:normal}
+@media print{.rv-links{display:none}}

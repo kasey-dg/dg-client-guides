@@ -9,7 +9,8 @@
      25.236
     ]
    ],
-   "at": "Naoussa"
+   "at": "Naoussa",
+   "city": "Naoussa, Paros, Greece"
   },
   "Halaris Ouzeri": {
    "p": [
@@ -18,7 +19,8 @@
      25.232
     ]
    ],
-   "at": "Piso Livadi"
+   "at": "Piso Livadi",
+   "city": "Piso Livadi, Paros, Greece"
   },
   "Rema Floga": {
    "p": [
@@ -27,7 +29,8 @@
      25.15
     ]
    ],
-   "at": "Parikia"
+   "at": "Parikia",
+   "city": "Parikia, Paros, Greece"
   },
   "Galazia Hytra": {
    "p": [
@@ -36,7 +39,8 @@
      25.066
     ]
    ],
-   "at": "Pounta"
+   "at": "Pounta",
+   "city": "Pounta, Paros, Greece"
   },
   "Kafeneio Drakakis": {
    "p": [
@@ -45,7 +49,8 @@
      24.723
     ]
    ],
-   "at": "Apollonia"
+   "at": "Apollonia",
+   "city": "Apollonia, Sifnos, Greece"
   },
   "Bostani": {
    "p": [
@@ -54,7 +59,8 @@
      24.728
     ]
    ],
-   "at": "Poulati"
+   "at": "Poulati",
+   "city": "Poulati, Sifnos, Greece"
   },
   "Cantina": {
    "p": [
@@ -63,7 +69,8 @@
      24.748
     ]
    ],
-   "at": "near Kastro"
+   "at": "near Kastro",
+   "city": "near Kastro, Sifnos, Greece"
   },
   "Omega 3": {
    "p": [
@@ -72,8 +79,10 @@
      24.74
     ]
    ],
-   "at": "Platis Gialos"
+   "at": "Platis Gialos",
+   "city": "Platis Gialos, Sifnos, Greece"
   }
  },
- "category": "restaurants"
+ "category": "restaurants",
+ "city": "Greece"
 }
