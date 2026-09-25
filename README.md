@@ -132,5 +132,6 @@ To add the feature to a new guide, create `places/<guide>.json` and add the guid
 Each located card gets a "Ratings & reviews" button that opens a drawer with:
 - **Recognized by** and **From Kasey's clients**: add `accolades` (`label`, `year`, `source`, `url`) and `quotes` (`text`, `who`, `when`) to a place in `places/<guide>.json`.
 - **Tripadvisor and Google Maps** ratings and up to 5 recent reviews each, loaded live by `netlify/functions/reviews.mjs`. Set `TRIPADVISOR_API_KEY` and/or `GOOGLE_PLACES_API_KEY` in Netlify, then redeploy. A source without a key is simply hidden.
+- **Star line on each card:** rating, stars, source name and review count for each source, linking to that site's page for the place (all reviews). It loads as the card scrolls into view. To show only some sources on cards, set `INLINE_SOURCES` in Netlify (e.g. `tripadvisor`); the drawer still shows every source.
 - If a place matches the wrong listing, pin it with `"ta": "<Tripadvisor location id>"` or `"gid": "<Google place id>"` in its places entry.
 - Tripadvisor responses are cached at Netlify's edge for 24 hours. Google responses are never cached (Google's terms).

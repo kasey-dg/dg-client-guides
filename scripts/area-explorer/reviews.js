@@ -24,6 +24,7 @@
   };
 
   var live = [];      // sources the site has keys for
+  var inline = [];    // sources shown as a star line on each card
   var cache = {};     // id:source -> promise
 
   function hasStatic(d) { return (d.accolades && d.accolades.length) || (d.quotes && d.quotes.length); }
@@ -64,14 +65,15 @@
     return isNaN(d) ? "" : d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
   }
 
-  function load(id, src) {
-    var k = id + ":" + src;
+  function load(id, src, mode) {
+    var k = id + ":" + src + ":" + (mode || "full");
     if (cache[k]) return cache[k];
     var e = byId[id], pt = e.d.p[0];
     var q = new URLSearchParams({ source: src, name: e.key, lat: pt[0], lng: pt[1] });
     if (CFG.category && src === "tripadvisor") q.set("category", CFG.category);
     var over = src === "tripadvisor" ? e.d.ta : e.d.gid;
     if (over) q.set("id", over);
+    if (mode) q.set("mode", mode);
     cache[k] = fetch(API + "?" + q).then(function (r) { return r.json(); }).catch(function () { return { error: "unavailable" }; });
     cache[k].then(function (d) { if (d.error) delete cache[k]; });
     return cache[k];
@@ -166,6 +168,76 @@
     });
   }
 
+
+  // ── Star line on each card ───────────────────────────────
+  // Loads as each card scrolls into view: "4.5 ★★★★½ Tripadvisor · 58,213 reviews", each linking to
+  // that site's page for the place, where every review can be read.
+  var starObserver = null;
+  function cardId(card) {
+    var link = card.querySelector(".place-link[data-place]");
+    if (!link || card.hasAttribute("data-area-repeat")) return null;
+    var id = link.getAttribute("data-place");
+    return byId[id] && !byId[id].d.trip ? id : null;
+  }
+  function watch(card) {
+    if (card.hasAttribute("data-stars") || !cardId(card)) return;
+    card.setAttribute("data-stars", "pending");
+    starObserver.observe(card);
+  }
+  function fillStars(card) {
+    var id = cardId(card);
+    var row = document.createElement("div");
+    row.className = "rv-line";
+    row.setAttribute("aria-label", "Traveler ratings");
+    inline.forEach(function (s) {
+      var slot = document.createElement("span");
+      slot.className = "rv-chip-slot";
+      row.appendChild(slot);
+      load(id, s, "summary").then(function (r) {
+        if (!r || r.error || !r.found || r.rating == null) { slot.remove(); if (!row.children.length) row.remove(); return; }
+        var visual = s === "tripadvisor" && r.ratingImage
+          ? '<img src="' + esc(r.ratingImage) + '" alt="" height="14">'
+          : stars(r.rating);
+        var html = '<span class="rv-chip-score">' + Number(r.rating).toFixed(1) + "</span>" + visual +
+          '<span class="rv-chip-src">' + SOURCES[s].label + "</span>" +
+          (r.count != null ? '<span class="rv-chip-count">' + fmtCount(r.count) + " reviews</span>" : "") + ICON_OUT;
+        var a = document.createElement(r.url ? "a" : "span");
+        a.className = "rv-chip rv-chip-" + s;
+        if (r.url) {
+          a.href = r.url; a.target = "_blank"; a.rel = "noopener";
+          a.setAttribute("aria-label", "Rated " + Number(r.rating).toFixed(1) + " out of 5 on " + SOURCES[s].label + (r.count != null ? " from " + fmtCount(r.count) + " reviews" : "") + ". See all reviews on " + SOURCES[s].label + " (opens in a new tab)");
+        }
+        a.innerHTML = html;
+        slot.replaceWith(a);
+        // keep copies of this card (map view) in sync
+        document.querySelectorAll("article.card").forEach(function (c) {
+          if (c !== card && cardId(c) === id && !c.querySelector(".rv-line")) place(c, row.cloneNode(true));
+        });
+      });
+    });
+    place(card, row);
+    card.setAttribute("data-stars", "done");
+  }
+  function place(card, row) {
+    var anchor = card.querySelector(".walk") || card.querySelector(".meta") || card.querySelector("h3");
+    if (anchor) anchor.insertAdjacentElement("afterend", row);
+    else card.insertBefore(row, card.firstChild);
+  }
+  function startStarLines() {
+    if (!("IntersectionObserver" in window)) return;
+    starObserver = new IntersectionObserver(function (items) {
+      items.forEach(function (it) {
+        if (!it.isIntersecting) return;
+        starObserver.unobserve(it.target);
+        fillStars(it.target);
+      });
+    }, { rootMargin: "300px 0px" });
+    main.querySelectorAll("article.card").forEach(watch);
+    new MutationObserver(function () {
+      main.querySelectorAll("article.card:not([data-stars])").forEach(watch);
+    }).observe(main, { childList: true, subtree: true });
+  }
+
   document.addEventListener("click", function (ev) {
     var b = ev.target.closest("[data-reviews]");
     if (b) { open(b.getAttribute("data-reviews")); return; }
@@ -177,6 +249,8 @@
   addButtons();
   fetch(API + "?check=1").then(function (r) { return r.json(); }).then(function (j) {
     live = (j.sources || []).filter(function (s) { return SOURCES[s]; });
+    inline = (j.inline || live).filter(function (s) { return live.indexOf(s) > -1; });
     if (live.length) addButtons();
+    if (inline.length) startStarLines();
   }).catch(function () {});
 })();

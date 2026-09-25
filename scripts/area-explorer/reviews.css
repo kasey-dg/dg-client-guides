@@ -48,3 +48,15 @@
 .rv-open:focus-visible,.rv-close:focus-visible,.rv-tabs button:focus-visible,.rv-more:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 @media (max-width:640px){.rv-drawer{margin:auto 0 0;width:100%;height:88vh;max-height:88vh;border-radius:16px 16px 0 0}.rv-head{padding-top:18px}}
 @media print{.rv-open,.rv-drawer{display:none!important}}
+/* star line on cards */
+.rv-line{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.rv-chip{display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1px solid #dbe9ea;border-radius:8px;padding:4px 9px;font-size:.74rem;color:var(--text-mid);text-decoration:none;line-height:1.2}
+a.rv-chip:hover{border-color:var(--teal);background:var(--teal-light)}
+.rv-chip-score{font-weight:700;color:var(--text-dark);font-size:.8rem}
+.rv-chip-src{font-weight:600;color:var(--teal-dark)}
+.rv-chip-count{color:var(--text-muted)}
+.rv-chip svg{width:11px;height:11px;color:var(--text-muted)}
+.rv-chip .rv-stars{width:64px;height:12px;-webkit-mask-size:64px 12px;mask-size:64px 12px}
+.rv-chip img{display:block}
+a.rv-chip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+@media print{.rv-chip svg{display:none}.rv-chip{border-color:#ccc}}

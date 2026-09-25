@@ -1,9 +1,11 @@
 // Live ratings + reviews for guide places.
 //   GET /.netlify/functions/reviews?check=1                 -> which sources are configured
-//   GET /.netlify/functions/reviews?source=tripadvisor|google&name=..&lat=..&lng=..[&category=restaurants|attractions][&id=<override>]
+//   GET /.netlify/functions/reviews?source=tripadvisor|google&name=..&lat=..&lng=..[&category=restaurants|attractions][&id=<override>][&mode=summary]
+//   mode=summary returns just the rating, count and link (cheaper; used for the star line on each card)
 // Keys live in Netlify env vars (never in the guide pages):
 //   TRIPADVISOR_API_KEY   Tripadvisor Content API key (restrict it to the dg-guides.netlify.app domain)
 //   GOOGLE_PLACES_API_KEY Google Places API (New) key (restrict it to the Places API)
+//   INLINE_SOURCES        optional, e.g. "tripadvisor" to show only Tripadvisor stars on cards (default: every configured source)
 const SITE = "https://dg-guides.netlify.app";
 const TA = "https://api.content.tripadvisor.com/api/v1";
 
@@ -42,11 +44,12 @@ async function tripadvisor(key, q) {
   d.search = new URLSearchParams({ key, language: "en", currency: "USD" });
   const r = new URL(`${TA}/location/${id}/reviews`);
   r.search = new URLSearchParams({ key, language: "en" });
-  const [dr, rr] = await Promise.all([fetch(d, { headers: H }), fetch(r, { headers: H })]);
+  const summary = q.mode === "summary";
+  const [dr, rr] = await Promise.all([fetch(d, { headers: H }), summary ? null : fetch(r, { headers: H })]);
   if (!dr.ok) throw new Error("details " + dr.status);
   const det = await dr.json();
   if (q.lat && det.latitude && dist([+q.lat, +q.lng], [+det.latitude, +det.longitude]) > 3000) return { found: false };
-  const revs = rr.ok ? (await rr.json()).data || [] : [];
+  const revs = rr && rr.ok ? (await rr.json()).data || [] : [];
   return {
     found: true,
     name: det.name,
@@ -63,7 +66,7 @@ async function tripadvisor(key, q) {
 }
 
 async function google(key, q) {
-  const fields = "places.id,places.displayName,places.rating,places.userRatingCount,places.googleMapsUri,places.reviews,places.location";
+  const fields = "places.id,places.displayName,places.rating,places.userRatingCount,places.googleMapsUri,places.location" + (q.mode === "summary" ? "" : ",places.reviews");
   let place;
   if (q.id) {
     const res = await fetch(`https://places.googleapis.com/v1/places/${encodeURIComponent(q.id)}`, {
@@ -104,7 +107,9 @@ export default async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: { ...cors, "Access-Control-Allow-Methods": "GET" } });
   const p = Object.fromEntries(new URL(req.url).searchParams);
   const keys = { tripadvisor: process.env.TRIPADVISOR_API_KEY, google: process.env.GOOGLE_PLACES_API_KEY };
-  if (p.check) return reply({ sources: Object.keys(keys).filter((k) => keys[k]) }, { cache: "public, s-maxage=300" });
+  const configured = Object.keys(keys).filter((k) => keys[k]);
+  const inline = process.env.INLINE_SOURCES ? process.env.INLINE_SOURCES.split(",").map((x) => x.trim()).filter((x) => configured.includes(x)) : configured;
+  if (p.check) return reply({ sources: configured, inline }, { cache: "public, s-maxage=300" });
 
   const src = p.source;
   if (!keys[src]) return reply({ source: src, configured: false });
